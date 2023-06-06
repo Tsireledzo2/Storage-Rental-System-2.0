@@ -1,0 +1,44 @@
+package za.ac.cput.util;
+
+import org.apache.commons.validator.routines.EmailValidator;
+
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+
+public class Helper {
+    public static Boolean isNullorEmpty(Date s){
+        if(s==null){
+            return true;
+        }
+        return false;
+    }
+
+    public static Boolean isNullorEmpty2(List s){
+        if(s==null||s.isEmpty()){
+            return true;
+        }
+        return false;
+    }
+    public static Boolean isNullorEmpty3(Double s){
+        if(s==null||s.isNaN()){
+            return true;
+        }
+        return false;
+    }
+
+
+
+    //auto generate id
+    public static String generateId(){
+        return UUID.randomUUID().toString();
+    }
+
+    //validate the email
+    public static Boolean isValidEmail(String email){
+        EmailValidator emailValidator = EmailValidator.getInstance();
+        return emailValidator.isValid(email);
+
+    }
+}
+
