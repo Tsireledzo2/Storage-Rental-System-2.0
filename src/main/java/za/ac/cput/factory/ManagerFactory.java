@@ -16,7 +16,7 @@ public class ManagerFactory {
             return null;
         }
         String managerID = Helper.generateId();
-        if (!Helper.isValidEmial(email)){
+        if (!Helper.isValidEmail(email)){
             return null;
         }
 
