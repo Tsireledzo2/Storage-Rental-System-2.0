@@ -46,15 +46,16 @@ public class Helper {
         return false;
     }
 
-
-
     //auto generate id
     public static String generateId(){
         return UUID.randomUUID().toString();
     }
 
-    //validate the email
+    public static String generateNumber(){
+        return String.valueOf(Math.random());
+    }
 
+    //validate the email
     public static Boolean isValidEmail(String email){
 
         EmailValidator emailValidator = EmailValidator.getInstance();
@@ -64,5 +65,7 @@ public class Helper {
 
 
 
+
 }
+
 
