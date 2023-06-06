@@ -43,8 +43,6 @@ public class Helper {
     //validate the email
     public static Boolean isValidEmail(String email){
 
-    public static Boolean isValidEmail(String email){
-
         EmailValidator emailValidator = EmailValidator.getInstance();
         return emailValidator.isValid(email);
 
