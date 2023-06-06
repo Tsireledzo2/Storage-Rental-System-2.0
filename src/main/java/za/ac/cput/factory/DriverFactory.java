@@ -16,7 +16,7 @@ public class DriverFactory {
         }
 
         String licenceNumber = Helper.generateNumber();
-        if(!Helper.isValidEmial(email)){
+        if(!Helper.isValidEmail(email)){
             return null;
         }
 
