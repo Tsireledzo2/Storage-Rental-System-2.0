@@ -1,8 +1,7 @@
 package za.ac.cput.domain;
 
 public class Checkin {
-    private boolean driverStatus;
-    private boolean vehicleStatus;
+    private boolean driverStatus, vehicleStatus;
 
     public Checkin(boolean driverStatus, boolean vehicleStatus) {
         this.driverStatus = driverStatus;
@@ -35,18 +34,22 @@ public class Checkin {
         private boolean driverStatus;
         private boolean vehicleStatus;
 
-        public void setDriverStatus(boolean driverStatus) {
-            this.driverStatus = driverStatus;
+        public Builder setDriverStatus(boolean driverStatus) {
+            this.driverStatus = driverStatus; return this;
         }
 
-        public void setVehicleStatus(boolean vehicleStatus) {
-            this.vehicleStatus = vehicleStatus;
+        public Builder setVehicleStatus(boolean vehicleStatus) {
+            this.vehicleStatus = vehicleStatus; return this;
         }
 
         public Builder copy(Checkin checkin) {
             this.driverStatus = checkin.driverStatus;
             this.vehicleStatus = checkin.vehicleStatus;
             return this;
+        }
+
+        public Checkin build() {
+            return new Checkin(this);
         }
     }
 }
