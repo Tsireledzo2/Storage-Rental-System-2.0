@@ -7,19 +7,20 @@
 
 package za.ac.cput.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Invoice {
     private String invoiceNumber;
     private double amount;
-    private Date LocalDate;
+    private LocalDate invoiceDate;
 
     private  Invoice(){}
 
     private Invoice(Builder builder){
         this.invoiceNumber = builder.invoiceNumber;
         this.amount = builder.amount;
-        this.LocalDate = builder.LocalDate;
+        this.invoiceDate = builder.invoiceDate;
     }
 
     public String getInvoiceNumber() {
@@ -30,8 +31,8 @@ public class Invoice {
         return amount;
     }
 
-    public Date getLocalDate() {
-        return LocalDate;
+    public LocalDate getInvoiceDate() {
+        return invoiceDate;
     }
 
     @Override
@@ -39,14 +40,14 @@ public class Invoice {
         return "Invoice{" +
                 "invoiceNumber =" + invoiceNumber +
                 ", amount=" + amount +
-                ", LocalDate='" + LocalDate + '\'' +
+                ", LocalDate='" + invoiceDate + '\'' +
                 '}';
     }
 
     public  static class Builder{
         private String invoiceNumber;
         private double amount;
-        private Date LocalDate;
+        private LocalDate invoiceDate;
 
         public  Builder setInvoiceNumber(String invoiceNumber){
             this.invoiceNumber = invoiceNumber;
@@ -56,15 +57,15 @@ public class Invoice {
             this.amount = amount;
             return this;
         }
-        public  Builder setLocalDate(Date LocalDate){
-            this.LocalDate = LocalDate;
+        public  Builder setInvoiceDate(LocalDate invoiceDate){
+            this.invoiceDate = invoiceDate;
             return this;
         }
 
         public Builder copy(Invoice invoice){
             this.invoiceNumber = invoice.invoiceNumber;
             this.amount = invoice.amount;
-            this.LocalDate = invoice.LocalDate;
+            this.invoiceDate = invoice.invoiceDate;
             return this;
         }
         public Invoice build(){

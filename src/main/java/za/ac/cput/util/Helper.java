@@ -10,6 +10,7 @@ package za.ac.cput.util;
 import org.apache.commons.validator.routines.EmailValidator;
 
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import java.util.List;
@@ -17,8 +18,12 @@ import java.util.UUID;
 
 public class Helper {
 
-    public static Boolean isNullorEmpty(Date s){
+    public static Boolean isNullorEmpty(LocalDate s){
         if(s==null){
+            return true;
+        }
+        return false;
+    }
 
 
     public static Boolean isNullorEmpty(String s){
@@ -37,8 +42,6 @@ public class Helper {
     }
 
     public static Boolean isNullorEmpty3(Double s){
-
-    public static Boolean isNullorEmpty3(Float s){
 
         if(s==null||s.isNaN()){
             return true;
