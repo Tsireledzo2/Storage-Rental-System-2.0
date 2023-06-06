@@ -1,5 +1,5 @@
 /**
- * ivoiceList.java
+ * ivoiceLine.java
  * This is the model or worker class
  * @author christian mukuna mbuyi
  * 06/06/2023

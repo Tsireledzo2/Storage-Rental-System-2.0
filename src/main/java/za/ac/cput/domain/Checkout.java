@@ -35,18 +35,22 @@ public class Checkout {
         private boolean driverStatus;
         private boolean vehicleStatus;
 
-        public void setDriverStatus(boolean driverStatus) {
-            this.driverStatus = driverStatus;
+        public Builder setDriverStatus(boolean driverStatus) {
+            this.driverStatus = driverStatus;return this;
         }
 
-        public void setVehicleStatus(boolean vehicleStatus) {
-            this.vehicleStatus = vehicleStatus;
+        public Builder setVehicleStatus(boolean vehicleStatus) {
+            this.vehicleStatus = vehicleStatus;return this;
         }
 
         public Builder copy(Checkout checkout) {
             this.driverStatus = checkout.driverStatus;
             this.vehicleStatus = checkout.vehicleStatus;
             return this;
+        }
+
+        public Checkout build() {
+            return new Checkout(this);
         }
     }
 }
