@@ -8,7 +8,6 @@ package za.ac.cput.factory;
 
 import za.ac.cput.domain.Invoice;
 import za.ac.cput.util.Helper;
-
 import java.time.LocalDate;
 
 public class InvoiceFactory {
