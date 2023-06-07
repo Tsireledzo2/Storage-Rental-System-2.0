@@ -1,15 +1,9 @@
 package za.ac.cput.repository;
 
+public interface IRepository <objectType,string>{
 
-
-public interface IRepository<objectType, t> {
-
-    //crud
     objectType create(objectType objectType);
-
-    objectType read(t t);
-
+    objectType read(string string);
     objectType update(objectType objectType);
-
-    boolean delete(t t);
+    boolean delete(string string);
 }

@@ -29,9 +29,6 @@ public class VehicleTypeImpl implements IVehicleTypeRepository {
         return vehicleTypeRepository;
     }
 
-
-
-
     @Override
     public VehicleType create(VehicleType vehicleType) {
         boolean success = vehicleTypeDB.add(vehicleType);
