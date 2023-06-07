@@ -12,7 +12,7 @@ import za.ac.cput.util.Helper;
 import java.util.List;
 
 public class InvoiceLineFactory {
-    public static InvoiceLine buildInvoiceLine(List invoiceline){
+    public static InvoiceLine createInvoiceLine(List invoiceline){
         if (Helper.isNullorEmpty2(invoiceline)){
             return null;
         }
