@@ -12,7 +12,7 @@ import za.ac.cput.util.Helper;
 import java.util.Date;
 
 public class InvoiceFactory {
-    public static Invoice createInvoice(double amount, Date LocalDate){
+    public static Invoice buildInvoice(double amount, LocalDate LocalDate){
         if (Helper.isNullorEmpty3(amount)|| Helper.isNullorEmpty(LocalDate)){
             return null;
         }
