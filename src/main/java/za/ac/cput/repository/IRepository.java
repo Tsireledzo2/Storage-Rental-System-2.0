@@ -1,3 +1,4 @@
+
 /**
  *  IRepository.java
  * Author Ruvimbo Ndoro 220128871
@@ -13,5 +14,15 @@ public interface IRepository <objectType , t>{
     objectType read (t t);
     objectType update (objectType objectType);
     boolean delete(t t);
+
+
+package za.ac.cput.repository;
+
+public interface IRepository <objectType,string>{
+
+    objectType create(objectType objectType);
+    objectType read(string string);
+    objectType update(objectType objectType);
+    boolean delete(string string);
 
 }
