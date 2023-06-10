@@ -9,11 +9,12 @@ package za.ac.cput.factory;
 import za.ac.cput.domain.Invoice;
 import za.ac.cput.util.Helper;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class InvoiceFactory {
-    public static Invoice buildInvoice(double amount, LocalDate LocalDate){
-        if (Helper.isNullorEmpty3(amount)|| Helper.isNullorEmpty(LocalDate)){
+    public static Invoice buildInvoice(double amount, Date invoiceDate){
+        if (Helper.isNullorEmpty3(amount)|| Helper.isNullorEmpty(invoiceDate.toString())){
             return null;
         }
         String invoiceNumber = Helper.generateId();
@@ -21,7 +22,7 @@ public class InvoiceFactory {
         Invoice invoice = new Invoice.Builder()
                 .setInvoiceNumber(invoiceNumber)
                 .setAmount(amount)
-                .setLocalDate(LocalDate)
+                .setInvoiceDate(invoiceDate)
                 .build();
         return invoice;
     }
