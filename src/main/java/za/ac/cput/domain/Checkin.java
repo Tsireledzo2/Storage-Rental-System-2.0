@@ -28,10 +28,10 @@ public class Checkin {
                 ", vehicleStatus=" + vehicleStatus +
                 '}';
     }
-//
+    //
     public static class Builder {
 
-        private String driverStatus ,vehicleStatus;
+        private String driverStatus, vehicleStatus;
 
         public Builder setDriverStatus(String driverStatus) {
             this.driverStatus = driverStatus;
