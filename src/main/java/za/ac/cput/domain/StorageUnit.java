@@ -24,7 +24,7 @@ public class StorageUnit implements Serializable {
 
     private StorageUnit(Builder builder) {
         this.unitId = builder.unitId;
-        this.unitSizeDescription = builder.description;
+        this.unitSizeDescription = builder.unitSizeDescription;
 
     }
 
@@ -63,7 +63,7 @@ public class StorageUnit implements Serializable {
 
     public static class Builder {
         private String unitId;
-        private String description;
+        private String unitSizeDescription;
 
 
         public Builder setUnitId(String unitId) {
@@ -71,15 +71,15 @@ public class StorageUnit implements Serializable {
             return this;
         }
 
-        public Builder setDescription(String description) {
-            this.description = description;
+        public Builder setUnitSizeDescription(String unitSizeDescription) {
+            this.unitSizeDescription = unitSizeDescription;
             return this;
         }
 
 
         public Builder copy(StorageUnit storageUnit) {
             this.unitId = storageUnit.unitId;
-            this.description = storageUnit.unitSizeDescription;
+            this.unitSizeDescription = storageUnit.unitSizeDescription;
             return this;
 
         }
