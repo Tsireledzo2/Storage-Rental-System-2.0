@@ -1,7 +1,7 @@
 /**
  * This worked as a basecode
  * VehicleTypeImpl.java
- * Class for the VehicleTypeImpl
+ * Class for the VehicleTypeRepositoryImpl
  * @author: Tsireledzo Wisdom Makhado (221116273)
  * Date: 08 April 2023
  */
@@ -13,18 +13,18 @@ import za.ac.cput.repository.IVehicleTypeRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-public class VehicleTypeImpl implements IVehicleTypeRepository {
-    private static VehicleTypeImpl vehicleTypeRepository = null;
+public class VehicleTypeRepositoryImpl implements IVehicleTypeRepository {
+    private static VehicleTypeRepositoryImpl vehicleTypeRepository = null;
 
     private Set<VehicleType> vehicleTypeDB = null;
 
-    private VehicleTypeImpl() {
+    private VehicleTypeRepositoryImpl() {
         vehicleTypeDB = new HashSet<VehicleType>();
     }
 
-    public static VehicleTypeImpl getVehicleTypeRepository() {
+    public static VehicleTypeRepositoryImpl getVehicleTypeRepository() {
         if (vehicleTypeRepository == null) {
-            vehicleTypeRepository = new VehicleTypeImpl();
+            vehicleTypeRepository = new VehicleTypeRepositoryImpl();
         }
         return vehicleTypeRepository;
     }

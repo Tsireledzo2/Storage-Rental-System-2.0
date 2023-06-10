@@ -2,7 +2,7 @@
  * VehicleFactory.java
  * Class for the VehicleFactory
  * @author: Tsireledzo Wisdom Makhado (221116273)
- * Date: 08 April 2023
+ * Date: 06 June 2023
  */
 package za.ac.cput.factory;
 

@@ -1,9 +1,9 @@
 
 
 /**
- * This is the StorageUnit class
+ *  StorageUnit.java
  * Author Ruvimbo Ndoro 220128871
- * Date 8May 2023
+ * Date 10June 2023
  */
 
 package za.ac.cput.domain;
