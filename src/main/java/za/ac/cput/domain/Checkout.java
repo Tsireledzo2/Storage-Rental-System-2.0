@@ -1,9 +1,10 @@
 package za.ac.cput.domain;
 
 public class Checkout {
-    private String driverStatus, vehicleStatus;
+    private boolean driverStatus;
+    private boolean vehicleStatus;
 
-    public Checkout(String driverStatus, String vehicleStatus) {
+    public Checkout(boolean driverStatus, boolean vehicleStatus) {
         this.driverStatus = driverStatus;
         this.vehicleStatus = vehicleStatus;
     }
@@ -13,11 +14,11 @@ public class Checkout {
         this.vehicleStatus = builder.vehicleStatus;
     }
 
-    public String getDriverStatus() {
+    public boolean isDriverStatus() {
         return driverStatus;
     }
 
-    public String getVehicleStatus() {
+    public boolean isVehicleStatus() {
         return vehicleStatus;
     }
 
@@ -31,17 +32,15 @@ public class Checkout {
 
     public static class Builder {
 
-        private String driverStatus;
-        private String vehicleStatus;
+        private boolean driverStatus;
+        private boolean vehicleStatus;
 
-        public Builder setDriverStatus(String driverStatus) {
-            this.driverStatus = driverStatus;
-            return this;
+        public Builder setDriverStatus(boolean driverStatus) {
+            this.driverStatus = driverStatus;return this;
         }
 
-        public Builder setVehicleStatus(String vehicleStatus) {
-            this.vehicleStatus = vehicleStatus;
-            return this;
+        public Builder setVehicleStatus(boolean vehicleStatus) {
+            this.vehicleStatus = vehicleStatus;return this;
         }
 
         public Builder copy(Checkout checkout) {
