@@ -21,7 +21,7 @@ public class AdminFactory {
             return null;
         }
         Admin admin = new Admin.Builder()
-                .setAdminId(adminID)
+                .setAdminID(adminID)
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)
