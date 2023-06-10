@@ -28,7 +28,7 @@ public class Checkin {
                 ", vehicleStatus=" + vehicleStatus +
                 '}';
     }
-
+//
     public static class Builder {
 
         private String driverStatus ,vehicleStatus;

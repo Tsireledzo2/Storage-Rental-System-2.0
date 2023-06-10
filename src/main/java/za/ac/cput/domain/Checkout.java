@@ -29,6 +29,7 @@ public class Checkout {
                 '}';
     }
 
+    //
     public static class Builder {
 
         private String driverStatus;
