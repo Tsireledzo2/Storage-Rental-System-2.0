@@ -55,11 +55,17 @@ public class Helper {
     }
 
     public static String generateNumber(){
-        return String.valueOf(Math.random());
+        float min = 100000000000L;
+        long max = 260000000000L;
+        long studentNumber = (long)(Math.random()*(max-min+1)+min);
+        return String.valueOf(studentNumber);
     }
+
+
 
     //validate the email
     public static Boolean isValidEmail(String email){
+
 
         EmailValidator emailValidator = EmailValidator.getInstance();
         return emailValidator.isValid(email);
