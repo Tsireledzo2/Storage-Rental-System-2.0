@@ -1,3 +1,4 @@
+
 /**
  * This is a basecode
  * Helper.java
@@ -8,13 +9,26 @@ package za.ac.cput.util;
 
 import org.apache.commons.validator.routines.EmailValidator;
 
+
+import java.time.LocalDate;
+import java.util.Date;
+
 import java.util.List;
 import java.util.UUID;
 
 public class Helper {
 
+    public static Boolean isNullorEmpty(LocalDate s){
+        if(s==null){
+            return true;
+        }
+        return false;
+    }
+
+
     public static Boolean isNullorEmpty(String s){
         if(s==null||s.isBlank()){
+
             return true;
         }
         return false;
@@ -26,12 +40,15 @@ public class Helper {
         }
         return false;
     }
-    public static Boolean isNullorEmpty3(Float s){
+
+    public static Boolean isNullorEmpty3(Double s){
+
         if(s==null||s.isNaN()){
             return true;
         }
         return false;
     }
+
     //auto generate id
     public static String generateId(){
         return UUID.randomUUID().toString();
@@ -44,10 +61,20 @@ public class Helper {
         return String.valueOf(studentNumber);
     }
 
+
+
     //validate the email
     public static Boolean isValidEmail(String email){
+
+
         EmailValidator emailValidator = EmailValidator.getInstance();
         return emailValidator.isValid(email);
 
     }
+
+
+
+
 }
+
+
