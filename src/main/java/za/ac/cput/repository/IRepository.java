@@ -1,8 +1,10 @@
 package za.ac.cput.repository;
 
-public interface IRepository <objectType,t>{
 
-     //crud
+
+public interface IRepository<objectType, t> {
+
+    //crud
     objectType create(objectType objectType);
 
     objectType read(t t);
@@ -11,4 +13,3 @@ public interface IRepository <objectType,t>{
 
     boolean delete(t t);
 }
-
