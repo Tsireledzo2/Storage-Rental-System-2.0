@@ -9,7 +9,7 @@ public class CustomerFactory {
                                           String lastName,
                                           String email,
                                           String phone){
-
+//ar
 
         if (Helper.isNullorEmpty(firstName) ||
                 Helper.isNullorEmpty(lastName) ||

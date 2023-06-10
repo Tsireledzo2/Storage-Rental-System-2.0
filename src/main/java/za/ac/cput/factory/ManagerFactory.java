@@ -9,7 +9,7 @@ package za.ac.cput.factory;
 import za.ac.cput.domain.Manager;
 import za.ac.cput.util.Helper;
 public class ManagerFactory {
-
+    //ar
     public static Manager createManager(String firstName,String lastName,String email,String password){
 
         if(Helper.isNullorEmpty(firstName)||Helper.isNullorEmpty(lastName)){

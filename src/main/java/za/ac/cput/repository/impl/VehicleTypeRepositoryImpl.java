@@ -12,7 +12,7 @@ import za.ac.cput.repository.IVehicleTypeRepository;
 
 import java.util.HashSet;
 import java.util.Set;
-
+//ar
 public class VehicleTypeRepositoryImpl implements IVehicleTypeRepository {
     private static VehicleTypeRepositoryImpl vehicleTypeRepository = null;
 

@@ -13,7 +13,7 @@ public class Checkout {
         this.driverStatus = builder.driverStatus;
         this.vehicleStatus = builder.vehicleStatus;
     }
-
+    //ar
     public boolean isDriverStatus() {
         return driverStatus;
     }

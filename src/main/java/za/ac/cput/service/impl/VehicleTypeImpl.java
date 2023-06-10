@@ -6,7 +6,7 @@ import za.ac.cput.repository.impl.VehicleTypeRepositoryImpl;
 import za.ac.cput.service.VehicleTypeService;
 
 import java.util.Set;
-
+//ar
 public class VehicleTypeImpl implements VehicleTypeService {
     private static VehicleTypeImpl vehicleTypeService = null;
     private static VehicleTypeRepositoryImpl vehicleTypeRepository = null;

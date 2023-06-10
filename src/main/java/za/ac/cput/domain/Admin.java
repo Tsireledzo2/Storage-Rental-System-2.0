@@ -5,7 +5,7 @@ author : Lithemba Nkqayi(220558558)
 Date : 6 June 2023
  */
 package za.ac.cput.domain;
-
+//ar
 public class Admin {
     private String adminID;
     private String firstName;

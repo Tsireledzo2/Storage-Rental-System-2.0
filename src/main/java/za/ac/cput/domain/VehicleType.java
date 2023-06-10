@@ -20,7 +20,7 @@ public class VehicleType {
         this.capacity = builder.capacity;
         this.vehiclePrice = builder.vehiclePrice;
     }
-
+    //ar
     public String getVehicleDescription() {
         return vehicleDescription;
     }

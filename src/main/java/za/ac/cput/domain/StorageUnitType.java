@@ -9,7 +9,7 @@ package za.ac.cput.domain;
 
 import java.io.Serializable;
 import java.util.Objects;
-
+//ar
 public class StorageUnitType implements Serializable {
 
     private double length;

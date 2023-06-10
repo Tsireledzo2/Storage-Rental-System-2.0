@@ -10,6 +10,6 @@ public class CheckoutFactory {
              .setVehicleStatus(vehicleStatus)
              .build();
      return checkout;
-
+//ar
  }
 }

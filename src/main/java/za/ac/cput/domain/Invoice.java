@@ -9,7 +9,7 @@ package za.ac.cput.domain;
 
 import java.time.LocalDate;
 import java.util.Date;
-
+//ar
 public class Invoice {
     private String invoiceNumber;
     private double amount;

@@ -10,7 +10,7 @@ package za.ac.cput.repository;
 import za.ac.cput.domain.VehicleType;
 
 import java.util.Set;
-
+//ar
 public interface IVehicleTypeRepository extends IRepository<VehicleType,String>{
     public Set<VehicleType> getAll();
 }
