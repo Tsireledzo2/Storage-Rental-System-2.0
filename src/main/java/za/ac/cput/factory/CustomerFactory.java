@@ -1,5 +1,9 @@
 package za.ac.cput.factory;
-
+/*
+Ndumiso Nkululeko Ngcobo
+220094861
+This is an Address Class
+ */
 import za.ac.cput.domain.Customer;
 import za.ac.cput.util.Helper;
 
