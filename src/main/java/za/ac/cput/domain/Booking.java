@@ -9,7 +9,7 @@ package za.ac.cput.domain;
 
 import java.util.Date;
 import java.util.Objects;
-
+//ar
 public class Booking {
     private String bookingNumber;
     private Date bookingDate, startDate, endDate;
