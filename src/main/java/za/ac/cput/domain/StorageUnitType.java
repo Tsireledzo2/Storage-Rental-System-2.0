@@ -4,7 +4,11 @@
  * Date 8May 2023
  */
 
-
+/**
+ *  StorageUnitType.java
+ * Author Ruvimbo Ndoro 220128871
+ * Date 10June 2023
+ */
 package za.ac.cput.domain;
 
 import java.io.Serializable;
