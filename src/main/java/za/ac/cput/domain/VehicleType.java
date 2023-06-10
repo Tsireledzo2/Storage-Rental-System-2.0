@@ -36,9 +36,9 @@ public class VehicleType {
     @Override
     public String toString() {
         return "VehicleType{" +
-                "name='" + vehicleDescription + '\'' +
-                ", capacity=" + capacity +
-                ", price=" + vehiclePrice +
+                "vehicle size description: " + vehicleDescription + '\'' +
+                ", capacity: " + capacity +" large boxes" +
+                ", price: " + "R"+vehiclePrice +
                 '}';
     }
 
