@@ -14,7 +14,7 @@ public class VehicleRepositoryImpl implements IVehicleRepository {
         vehicleDB = new HashSet<Vehicle>();
 
     }
-    public VehicleRepositoryImpl getVehicleRepository(){
+    public static VehicleRepositoryImpl getVehicleRepository(){
         if(vehicleRepository==null)
             vehicleRepository=new VehicleRepositoryImpl().getVehicleRepository();
         return vehicleRepository;

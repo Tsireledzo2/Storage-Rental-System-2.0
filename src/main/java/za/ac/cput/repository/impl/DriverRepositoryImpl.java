@@ -15,7 +15,7 @@ public class DriverRepositoryImpl implements IDriverRepository {
     public DriverRepositoryImpl() {
         driverDB = new HashSet<Driver>();
     }
-    public DriverRepositoryImpl getDriverRepository(){
+    public static DriverRepositoryImpl getDriverRepository(){
         if(driverRepository==null){
             driverRepository = new DriverRepositoryImpl().getDriverRepository();
         }
