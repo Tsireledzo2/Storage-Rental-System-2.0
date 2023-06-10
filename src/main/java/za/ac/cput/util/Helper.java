@@ -58,8 +58,11 @@ public class Helper {
         return String.valueOf(Math.random());
     }
 
+
+
     //validate the email
     public static Boolean isValidEmail(String email){
+
 
         EmailValidator emailValidator = EmailValidator.getInstance();
         return emailValidator.isValid(email);
