@@ -22,7 +22,6 @@ class InvoiceServiceimplTest {
     void a_create() {
         Invoice created = serviceimpl.create(invoice);
     }
-
     @Test
     void b_delete() {
         boolean success = serviceimpl.delete(invoice.getInvoiceNumber());
