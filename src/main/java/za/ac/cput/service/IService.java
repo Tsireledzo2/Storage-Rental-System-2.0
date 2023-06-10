@@ -1,4 +1,7 @@
 package za.ac.cput.service;
+
+public interface IService <objectType,primaryKey>{
+
 public interface IService <objectType,primaryKey> {
 
     objectType create(objectType objectType);
