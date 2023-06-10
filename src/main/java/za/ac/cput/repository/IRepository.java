@@ -13,4 +13,5 @@ public interface IRepository<objectType, t> {
     objectType read(t t);
     objectType update(objectType objectType);
     boolean delete(t t);
+
 }
