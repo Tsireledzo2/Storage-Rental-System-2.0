@@ -17,7 +17,7 @@ public class CustomerFactory {
             return null;
         }
         String customerID = Helper.generateId();
-        if (!Helper.isValidEmail(email)){
+        if (!Helper.isValidEmial(email)){
             return null;
         }
         Customer customer = new Customer.Builder()
