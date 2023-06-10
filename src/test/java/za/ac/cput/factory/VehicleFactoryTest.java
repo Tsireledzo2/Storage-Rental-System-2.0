@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class VehicleFactoryTest {
     @Test
     void createVehicleFactory(){
-        Vehicle vehicle = VehicleFactory.buildVehicle("ABC 363","dfdff","Black","2016","Toyota Hilux 4x4");
+        Vehicle vehicle = VehicleFactory.buildVehicle("ABC 363","Toyota","Black","2016","Hilux 4x4");
         System.out.println("Vehicle: " +vehicle);
         assertNotNull(vehicle.getNumberPlate());
     }

@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DriverFactoryTest {
     @Test
     void createVehicleFactory(){
-        Driver driver = DriverFactory.buildDriver("Tsireledzo","Makhado","63562526726","tsire@gmail.com");
+        Driver driver = DriverFactory.buildDriver("Tsireledzo","Makhado","tsire@gmail.com","123456");
         System.out.println("Driver: " +driver);
         assertNotNull(driver.getLicenceNumber());
     }
