@@ -1,9 +1,3 @@
-/*
-Admin.java
-This is the Admin class
-author : Lithemba Nkqayi(220558558)
-Date : 6 June 2023
- */
 package za.ac.cput.domain;
 
 public class Admin {
@@ -12,14 +6,12 @@ public class Admin {
     private String lastName;
     private String email;
     private String password;
-
-    private Admin() {
-    }
-    private Admin(Builder builder){
-        this.adminID = builder.adminId;
+    private Admin(){}
+    private Admin (Builder builder){
+        this.adminID = builder.adminID;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
-        this.email = builder.email;
+        this.email =builder.email;
         this.password = builder.password;
     }
 
@@ -46,23 +38,22 @@ public class Admin {
     @Override
     public String toString() {
         return "Admin{" +
-                "adminId='" + adminID + '\'' +
+                "adminID='" + adminID + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
-
     public static class Builder{
-        private String adminId;
+        private String adminID;
         private String firstName;
         private String lastName;
         private String email;
         private String password;
 
-        public Builder setAdminId(String adminId) {
-            this.adminId = adminId;
+        public Builder setAdminID(String adminID) {
+            this.adminID = adminID;
             return this;
         }
 
@@ -85,9 +76,8 @@ public class Admin {
             this.password = password;
             return this;
         }
-
         public Builder copy(Admin admin){
-            this.adminId = adminId;
+            this.adminID = admin.adminID;
             this.firstName = admin.firstName;
             this.lastName = admin.lastName;
             this.email = admin.email;
@@ -97,6 +87,6 @@ public class Admin {
         public Admin build(){
             return new Admin(this);
         }
-    }
 
+    }
 }
