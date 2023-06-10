@@ -30,6 +30,7 @@ public class Checkout {
                 '}';
     }
 
+    //
     public static class Builder {
 
         private boolean driverStatus;
