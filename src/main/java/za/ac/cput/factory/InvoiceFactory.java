@@ -15,6 +15,11 @@ import java.util.Date;
 public class InvoiceFactory {
     public static Invoice buildInvoice(double amount, Date invoiceDate){
         if (Helper.isNullorEmpty3(amount)|| Helper.isNullorEmpty(invoiceDate.toString())){
+import java.time.LocalDate;
+
+public class InvoiceFactory {
+    public static Invoice buildInvoice(double amount, LocalDate invoivedate){
+        if (Helper.isNullorEmpty3(amount)|| Helper.isNullorEmpty(invoivedate)){
             return null;
         }
         String invoiceNumber = Helper.generateId();
@@ -23,6 +28,8 @@ public class InvoiceFactory {
                 .setInvoiceNumber(invoiceNumber)
                 .setAmount(amount)
                 .setInvoiceDate(invoiceDate)
+
+                .setInvoiceDate(invoivedate)
                 .build();
         return invoice;
     }
