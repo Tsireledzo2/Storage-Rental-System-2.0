@@ -7,7 +7,7 @@ import za.ac.cput.domain.VehicleType;
 import za.ac.cput.factory.VehicleTypeFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+//ar
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class VehicleTypeRepositoryImplTest {
 
