@@ -14,7 +14,7 @@ public class InvoiceLineRepositoryImpl implements IInvoiceLineRepository {
         invoiceLineDB = new HashSet<>();
 
     }
-    private static InvoiceLineRepositoryImpl getInvoiceLineRepository(){
+    public static InvoiceLineRepositoryImpl getRepository(){
         if (invoiceLineRepository == null){
             invoiceLineRepository = new InvoiceLineRepositoryImpl();
         }
