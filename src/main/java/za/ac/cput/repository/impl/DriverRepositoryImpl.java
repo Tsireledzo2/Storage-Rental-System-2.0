@@ -1,7 +1,12 @@
+/**
+ * DriverRepositoryImpl.java
+ * Class for the DriverRepositoryImpl
+ * @author: Tsireledzo Wisdom Makhado (221116273)
+ * Date: 06 June 2023
+ */
 package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.Driver;
-import za.ac.cput.factory.DriverFactory;
 import za.ac.cput.repository.IDriverRepository;
 
 import java.util.HashSet;
@@ -17,7 +22,7 @@ public class DriverRepositoryImpl implements IDriverRepository {
     }
     public static DriverRepositoryImpl getDriverRepository(){
         if(driverRepository==null){
-            driverRepository = new DriverRepositoryImpl().getDriverRepository();
+            driverRepository = new DriverRepositoryImpl();
         }
         return driverRepository;
     }
@@ -40,11 +45,6 @@ public class DriverRepositoryImpl implements IDriverRepository {
     }
 
     @Override
-    public Set<Driver> getAll() {
-        return driverRepository.getAll();
-    }
-
-    @Override
     public Driver update(Driver driver) {
         Driver oldDriver = driverRepository.read(driver.getLicenceNumber());
         if(oldDriver==null){
@@ -64,5 +64,9 @@ public class DriverRepositoryImpl implements IDriverRepository {
         driverDB.remove(deleteDriver);
         return true;
 
+    }
+    @Override
+    public Set<Driver> getAll() {
+        return driverDB;
     }
 }
