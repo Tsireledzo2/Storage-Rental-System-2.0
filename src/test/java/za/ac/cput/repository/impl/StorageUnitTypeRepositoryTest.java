@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class StorageUnitTypeRepositoryTest {
 
-    private static StorageUnitTypeRepository storageUnitTypeRepository = StorageUnitTypeRepository.getStorageUnitTypeRepository();
+    private static StorageUnitTypeRepositoryImpl storageUnitTypeRepository = StorageUnitTypeRepositoryImpl.getStorageUnitTypeRepository();
     private static StorageUnitType storageUnitType = StorageUnitTypeFactory.createStorageUnitType(5.6, 9.0, 6.8, 3, 7.5);
 
 
