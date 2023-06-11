@@ -1,4 +1,5 @@
 package za.ac.cput.service;
+ 
 /*
 Ndumiso Nkululeko Ngcobo
 220094861
@@ -11,5 +12,4 @@ public interface IService <objectType,primaryKey> {
         objectType read(primaryKey primaryKey);
         objectType update(objectType objectType);
         boolean delete(primaryKey primaryKey);
-
 }
