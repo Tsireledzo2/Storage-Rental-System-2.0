@@ -22,7 +22,7 @@ public class Manager {
         this.password = builder.password;
 
     }
-    public String getId() {
+    public String getManagerID() {
         return managerID;
     }
 
