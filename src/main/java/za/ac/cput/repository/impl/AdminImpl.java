@@ -1,3 +1,9 @@
+/*
+AdminImpl.java
+This is the AdminImpl class
+author : Lithemba Nkqayi(220558558)
+Date : 11 June 2023
+ */
 package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.Admin;

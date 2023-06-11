@@ -9,23 +9,23 @@
 package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.StorageUnit;
-import za.ac.cput.repository.IStorageUnitRepository;
+import za.ac.cput.repository.StorageUnitRepository;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class StorageUnitRepository implements IStorageUnitRepository {
-    private static StorageUnitRepository repository= null;
+public class StorageUnitRepositoryImpl implements StorageUnitRepository {
+    private static StorageUnitRepositoryImpl repository= null;
 
     private Set<StorageUnit> storageUnitDB = null;
 
-    private StorageUnitRepository(){
+    private StorageUnitRepositoryImpl(){
         storageUnitDB = new HashSet<StorageUnit>();
     }
 
-    public static StorageUnitRepository getStorageUnitRepository(){
+    public static StorageUnitRepositoryImpl getStorageUnitRepository(){
         if (repository == null){
-            repository = new StorageUnitRepository();
+            repository = new StorageUnitRepositoryImpl();
         }
         return repository;
     }
