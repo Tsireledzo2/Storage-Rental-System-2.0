@@ -18,14 +18,14 @@ public class CheckoutServiceImpl implements CheckoutService {
 
     private static CheckoutServiceImpl service;
 
-    private ICheckoutRepository repository;
+    private final ICheckoutRepository repository;
 
     private CheckoutServiceImpl() {
         repository = CheckoutImpl.getCheckOutRepository();
     }
 
     public static CheckoutServiceImpl getService() {
-        return (service == null)? service = new CheckoutServiceImpl(): null;
+        return (service == null)? service = new CheckoutServiceImpl(): service;
     }
 
     @Override
@@ -34,8 +34,8 @@ public class CheckoutServiceImpl implements CheckoutService {
     }
 
     @Override
-    public Checkout read(String s) {
-        return repository.read(s);
+    public Checkout read(String id) {
+        return repository.read(id);
     }
 
     @Override
@@ -44,8 +44,8 @@ public class CheckoutServiceImpl implements CheckoutService {
     }
 
     @Override
-    public boolean delete(String s) {
-        return repository.delete(s);
+    public boolean delete(String id) {
+        return repository.delete(id);
     }
 
 

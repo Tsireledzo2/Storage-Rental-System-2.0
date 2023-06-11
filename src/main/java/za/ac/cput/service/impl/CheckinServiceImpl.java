@@ -24,7 +24,7 @@ public class CheckinServiceImpl implements CheckinService {
     }
 
     public static CheckinServiceImpl getService() {
-        return (service == null)? service = new CheckinServiceImpl(): null;
+        return (service == null)? service = new CheckinServiceImpl(): service;
     }
 
     @Override
