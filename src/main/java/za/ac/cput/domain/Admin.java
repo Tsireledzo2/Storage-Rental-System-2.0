@@ -1,3 +1,9 @@
+/*
+Admin.java
+This is the Admin class
+author : Lithemba Nkqayi(220558558)
+Date : 11 June 2023
+ */
 package za.ac.cput.domain;
 
 public class Admin {
