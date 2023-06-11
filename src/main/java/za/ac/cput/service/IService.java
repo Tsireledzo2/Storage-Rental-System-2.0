@@ -1,15 +1,16 @@
-package za.ac.cput.service;
- 
-/*
-Ndumiso Nkululeko Ngcobo
-220094861
-Service Interface
-11/06/23
+/**
+ * IService.java
+ * Basecode
+ * Interface for the IService
+ * @author: Tsireledzo Wisdom Makhado (221116273)
+ * Date: 06 June 2023
  */
-public interface IService <objectType,primaryKey> {
+package za.ac.cput.service;
 
-        objectType create(objectType objectType);
-        objectType read(primaryKey primaryKey);
-        objectType update(objectType objectType);
-        boolean delete(primaryKey primaryKey);
+public interface IService <objectType,primaryKey> {
+    objectType create(objectType objectType);
+    objectType read(primaryKey primaryKey);
+    objectType update(objectType objectType);
+    boolean delete(primaryKey primaryKey);
 }
+

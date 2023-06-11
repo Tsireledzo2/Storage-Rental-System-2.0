@@ -13,7 +13,7 @@ import java.util.Date;
 public class Invoice {
     private String invoiceNumber;
     private double amount;
-    private LocalDate invoiceDate;
+    private Date invoiceDate;
 
     private  Invoice(){}
 
@@ -31,7 +31,7 @@ public class Invoice {
         return amount;
     }
 
-    public LocalDate getInvoiceDate() {
+    public Date getInvoiceDate() {
         return invoiceDate;
     }
 
@@ -40,14 +40,14 @@ public class Invoice {
         return "Invoice{" +
                 "invoiceNumber =" + invoiceNumber +
                 ", amount=" + amount +
-                ", LocalDate='" + invoiceDate + '\'' +
+                ", Date='" + invoiceDate + '\'' +
                 '}';
     }
 
     public  static class Builder{
         private String invoiceNumber;
         private double amount;
-        private LocalDate invoiceDate;
+        private Date invoiceDate;
 
         public  Builder setInvoiceNumber(String invoiceNumber){
             this.invoiceNumber = invoiceNumber;
@@ -57,7 +57,7 @@ public class Invoice {
             this.amount = amount;
             return this;
         }
-        public  Builder setInvoiceDate(LocalDate invoiceDate){
+        public  Builder setInvoiceDate(Date invoiceDate){
             this.invoiceDate = invoiceDate;
             return this;
         }
