@@ -1,5 +1,12 @@
 package za.ac.cput.service.impl;
 
+/*
+ * BookingServiceImpl.java
+ * BookingServiceImpl Entity
+ * @author: Argus Hakizimana Mbogo (220073260)
+ * Date: 09 June 2023
+ */
+
 import za.ac.cput.domain.Booking;
 import za.ac.cput.repository.IBookingRepository;
 import za.ac.cput.repository.impl.BookingImpl;

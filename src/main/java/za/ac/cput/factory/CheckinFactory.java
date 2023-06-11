@@ -1,4 +1,10 @@
 package za.ac.cput.factory;
+/*
+ * CheckinFactory.java
+ * CheckinFactory Entity
+ * @author: Argus Hakizimana Mbogo (220073260)
+ * Date: 09 June 2023
+ */
 
 import za.ac.cput.domain.Checkin;
 
