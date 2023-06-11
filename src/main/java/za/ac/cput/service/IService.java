@@ -6,5 +6,5 @@ public interface IService <objectType,primaryKey>{
     objectType read(primaryKey primaryKey);
     objectType update(objectType objectType);
     boolean delete(primaryKey primaryKey);
-
 }
+
