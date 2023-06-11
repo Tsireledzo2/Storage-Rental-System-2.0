@@ -1,9 +1,9 @@
 /**
- * This worked as a basecode
  * IRepository.java
+ * basecode
  * Interface for the IRepository
  * @author: Tsireledzo Wisdom Makhado (221116273)
- * Date: 08 April 2023
+ * Date: 06 June 2023
  */
 
 

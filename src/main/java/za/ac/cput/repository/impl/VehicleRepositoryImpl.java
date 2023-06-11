@@ -1,3 +1,9 @@
+/**
+ * VehicleRepositoryImpl.java
+ * Class for the VehicleRepositoryImpl
+ * @author: Tsireledzo Wisdom Makhado (221116273)
+ * Date: 06 June 2023
+ */
 package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.Vehicle;
@@ -16,7 +22,7 @@ public class VehicleRepositoryImpl implements IVehicleRepository {
     }
     public static VehicleRepositoryImpl getVehicleRepository(){
         if(vehicleRepository==null)
-            vehicleRepository=new VehicleRepositoryImpl().getVehicleRepository();
+            vehicleRepository=new VehicleRepositoryImpl();
         return vehicleRepository;
     }
     @Override
@@ -55,6 +61,6 @@ public class VehicleRepositoryImpl implements IVehicleRepository {
 
     @Override
     public Set<Vehicle> getAll() {
-        return vehicleRepository.getAll();
+        return vehicleDB;
     }
 }
