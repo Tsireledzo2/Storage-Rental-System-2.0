@@ -101,7 +101,6 @@ public class Employee {
             this.password = password;
             return this;
         }
-
         public Builder copy(Employee employee){
             this.employeeNumber = employee.employeeNumber;
             this.first_name = employee.first_name;

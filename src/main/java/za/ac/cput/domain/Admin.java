@@ -26,7 +26,6 @@ public class Admin {
         this.job_description = builder.job_description;
         this.employee = builder.employee;
     }
-
     public String getAdminID() {
         return adminID;
     }
