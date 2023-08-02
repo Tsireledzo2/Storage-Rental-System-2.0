@@ -9,7 +9,6 @@ public class EmployeeFactory {
         if(Helper.isNullorEmpty(first_name)||Helper.isNullorEmpty(last_name)){
             return null;
         }
-
         String employeeNumber = Helper.generateId();
         if (!Helper.isValidEmail(email)){
             return null;

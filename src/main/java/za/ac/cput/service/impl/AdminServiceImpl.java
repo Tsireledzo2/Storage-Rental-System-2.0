@@ -17,7 +17,6 @@ import java.util.List;
 @Service
 public class AdminServiceImpl implements IAdminService{
     private IAdminRepository adminRepository;
-
     @Autowired
     private AdminServiceImpl(IAdminRepository adminRepository){
 

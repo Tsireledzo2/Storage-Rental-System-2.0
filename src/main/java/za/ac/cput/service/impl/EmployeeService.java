@@ -15,7 +15,6 @@ public class EmployeeService implements IEmployeeService {
 
     @Autowired
     private EmployeeService(IEmployeeRepository IEmployeeRepository){
-
         this.IEmployeeRepository = IEmployeeRepository;
     }
     @Override

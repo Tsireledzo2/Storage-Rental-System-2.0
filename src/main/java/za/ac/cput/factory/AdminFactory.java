@@ -12,7 +12,6 @@ import za.ac.cput.util.Helper;
 public class AdminFactory {
     public static Admin createAdmin(String employeeNumber,String job_description,String adminID, String first_name, String last_name, String email, String password){
 
-
         Admin admin = new Admin.Builder()
                 .setAdminID(adminID)
                 .setJob_description(job_description)

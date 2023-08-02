@@ -26,7 +26,6 @@ public class ManagerServiceImpl implements IManagerService{
         return this.managerRepository.findAll();
     }
 
-
     @Override
     public Manager create(Manager manager) {
         return this.managerRepository.save(manager);

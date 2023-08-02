@@ -10,7 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.domain.Manager;
 import java.util.List;
 
-
 public interface IManagerRepository extends JpaRepository<Manager,String> {
     public List<Manager> getAll();
 }

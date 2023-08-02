@@ -13,4 +13,5 @@ import java.util.Set;
 
 public interface IManagerService extends IService <Manager,String>{
     public List<Manager> getAll();
+
 }

@@ -13,4 +13,5 @@ import java.util.Set;
 
 public interface IAdminService extends IService <Admin,String>{
     public List<Admin> getAll();
+
 }

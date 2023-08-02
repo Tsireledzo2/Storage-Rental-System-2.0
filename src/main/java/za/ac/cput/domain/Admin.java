@@ -21,6 +21,7 @@ public class Admin {
     @OneToOne
     @JoinColumn(name = "employeeNumber")
     private Employee employee;
+
     public Admin(){}
     public Admin (Builder builder){
         this.job_description = builder.job_description;

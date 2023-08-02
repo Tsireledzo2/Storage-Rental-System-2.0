@@ -6,5 +6,4 @@ import java.util.List;
 
 public interface IEmployeeService extends IService<Employee,String> {
     public List<Employee> getAll();
-
 }
