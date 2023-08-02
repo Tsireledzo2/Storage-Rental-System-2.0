@@ -1,4 +1,10 @@
 package za.ac.cput.domain;
+/*
+ * Checkout.java
+ * Checkout Entity
+ * @author: Argus Hakizimana Mbogo (220073260)
+ * Date: 09 June 2023
+ */
 
 public class Checkout {
     private String driverStatus, vehicleStatus;

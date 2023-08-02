@@ -1,5 +1,12 @@
 package za.ac.cput.repository.impl;
 
+/*
+ * CheckinImpl.java
+ * CheckinImpl Entity
+ * @author: Argus Hakizimana Mbogo (220073260)
+ * Date: 09 June 2023
+ */
+
 import za.ac.cput.domain.Checkin;
 import za.ac.cput.repository.ICheckinRepository;
 
