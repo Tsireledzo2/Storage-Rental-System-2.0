@@ -2,92 +2,87 @@
 Admin.java
 This is the Admin class
 author : Lithemba Nkqayi(220558558)
-Date : 11 June 2023
+Date : 28 July 2023
  */
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+
+import java.util.Objects;
+
+@Entity
 public class Admin {
+    @Id
     private String adminID;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private Admin(){}
-    private Admin (Builder builder){
-        this.adminID = builder.adminID;
-        this.firstName = builder.firstName;
-        this.lastName = builder.lastName;
-        this.email =builder.email;
-        this.password = builder.password;
+    private String job_description;
+    @OneToOne
+    @JoinColumn(name = "employeeNumber")
+    private Employee employee;
+    public Admin(){}
+    public Admin (Builder builder){
+        this.job_description = builder.job_description;
+        this.employee = builder.employee;
     }
 
     public String getAdminID() {
         return adminID;
     }
-
-    public String getFirstName() {
-        return firstName;
+    public String getJob_description() {
+        return job_description;
     }
 
-    public String getLastName() {
-        return lastName;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public String getEmail() {
-        return email;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Admin admin = (Admin) o;
+        return Objects.equals(adminID, admin.adminID) && Objects.equals(job_description, admin.job_description) && Objects.equals(employee, admin.employee);
     }
 
-    public String getPassword() {
-        return password;
+    @Override
+    public int hashCode() {
+        return Objects.hash(adminID, job_description, employee);
     }
 
     @Override
     public String toString() {
         return "Admin{" +
                 "adminID='" + adminID + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
+                ", job_description='" + job_description + '\'' +
+                ", employee=" + employee +
                 '}';
     }
+
     public static class Builder{
         private String adminID;
-        private String firstName;
-        private String lastName;
-        private String email;
-        private String password;
+        private String job_description;
+        private Employee employee;
 
-        public Builder setAdminID(String adminID) {
+        public Builder setAdminID(String adminID){
             this.adminID = adminID;
             return this;
         }
-
-        public Builder setFirstName(String firstName) {
-            this.firstName = firstName;
+        public Builder setJob_description(String job_description) {
+            this.job_description = job_description;
             return this;
         }
 
-        public Builder setLastName(String lastName) {
-            this.lastName = lastName;
+        public Builder setEmployee(Employee employee) {
+            this.employee = employee;
             return this;
         }
 
-        public Builder setEmail(String email) {
-            this.email = email;
-            return this;
-        }
-
-        public Builder setPassword(String password) {
-            this.password = password;
-            return this;
-        }
         public Builder copy(Admin admin){
             this.adminID = admin.adminID;
-            this.firstName = admin.firstName;
-            this.lastName = admin.lastName;
-            this.email = admin.email;
-            this.password = admin.password;
+            this.job_description = admin.job_description;
+            this.employee = admin.employee;
             return this;
         }
         public Admin build(){
