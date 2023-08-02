@@ -1,5 +1,12 @@
 package za.ac.cput.domain;
 
+/*
+ * Checkin.java
+ * Checkin Entity
+ * @author: Argus Hakizimana Mbogo (220073260)
+ * Date: 09 June 2023
+ */
+
 public class Checkin {
     private String driverStatus, vehicleStatus;
 
