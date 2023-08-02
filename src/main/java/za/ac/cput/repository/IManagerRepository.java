@@ -6,10 +6,10 @@ Date : 11 June 2023
  */
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.domain.Manager;
+import java.util.List;
 
-import java.util.Set;
-
-public interface IManagerRepository extends IRepository<Manager,String>{
-    public Set<Manager> getAll();
+public interface IManagerRepository extends JpaRepository<Manager,String> {
+    public List<Manager> getAll();
 }

@@ -6,43 +6,51 @@ Date : 11 June 2023
  */
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Admin;
+import za.ac.cput.repository.IAdminRepository;
 import za.ac.cput.service.IAdminService;
-import za.ac.cput.repository.impl.AdminImpl;
-import java.util.Set;
 
+import java.util.List;
+
+@Service
 public class AdminServiceImpl implements IAdminService{
-    private static AdminServiceImpl adminService = null;
-    private static AdminImpl adminRepository = null;
-    private AdminServiceImpl(){
-        adminRepository = AdminImpl.getAdminRepository();
+    private IAdminRepository adminRepository;
+    @Autowired
+    private AdminServiceImpl(IAdminRepository adminRepository){
+
+        this.adminRepository = adminRepository;
     }
     @Override
-    public Set<Admin> getAll() {
-        return adminRepository.getAll();
+    public List<Admin> getAll() {
+        return this.adminRepository.findAll();
     }
+
 
     @Override
     public Admin create(Admin admin) {
-        Admin created = adminRepository.create(admin);
-        return created;
+        return this.adminRepository.save(admin);
     }
 
     @Override
     public Admin read(String adminID) {
-        Admin readAdmin = adminRepository.read(adminID);
-        return readAdmin;
+        return this.adminRepository.findById(adminID).orElse(null);
     }
 
     @Override
     public Admin update(Admin admin) {
-        Admin updateAdmin = adminRepository.update(admin);
-        return updateAdmin;
+        if(this.adminRepository.existsById(admin.getAdminID()))
+            return this.adminRepository.save(admin);
+        return null;
     }
 
     @Override
     public boolean delete(String adminID) {
-        boolean success = adminRepository.delete(adminID);
-        return success;
+        if(this.adminRepository.existsById(adminID)) {
+            this.adminRepository.deleteById(adminID);
+            return true;
+        }
+        return false;
     }
 }
