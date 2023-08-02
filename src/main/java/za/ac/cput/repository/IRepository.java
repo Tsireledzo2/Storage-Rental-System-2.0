@@ -1,7 +1,7 @@
 package za.ac.cput.repository;
 
 
-@Deprecated
+
 public interface IRepository<objectType, t> {
 
     //crud

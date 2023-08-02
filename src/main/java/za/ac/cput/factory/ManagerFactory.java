@@ -6,15 +6,28 @@ author : Lithemba Nkqayi(220558558)
 6 June 2023
  */
 package za.ac.cput.factory;
+import za.ac.cput.util.Helper;
 import za.ac.cput.domain.Manager;
 public class ManagerFactory {
 
-    public static Manager buildManager(String job_description, String first_name, String last_name, String email, String password) {
+    public static Manager createManager(String firstName, String lastName, String email, String password){
+
+        if(Helper.isNullorEmpty(firstName)||Helper.isNullorEmpty(lastName)){
+            return null;
+        }
+        String managerID = Helper.generateId();
+        if (!Helper.isValidEmail(email)){
+            return null;
+        }
 
         Manager manager = new Manager.Builder()
-                .setJob_description(job_description)
-                .setEmployee(EmployeeFactory.buildEmployee(first_name, last_name, email, password))
+                .setManagerID(managerID)
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setEmail(email)
+                .setPassword(password)
                 .build();
+
         return manager;
     }
 }
