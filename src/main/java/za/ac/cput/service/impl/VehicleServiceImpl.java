@@ -1,8 +1,12 @@
+/**
+ * VehicleServiceImpl.java
+ * Class for the VehicleServiceImpl
+ * @author: Tsireledzo Wisdom Makhado (221116273)
+ * Date: 06 June 2023
+ */
 package za.ac.cput.service.impl;
 
-import za.ac.cput.domain.Driver;
 import za.ac.cput.domain.Vehicle;
-import za.ac.cput.repository.impl.DriverRepositoryImpl;
 import za.ac.cput.repository.impl.VehicleRepositoryImpl;
 import za.ac.cput.service.VehicleService;
 
