@@ -1,3 +1,8 @@
+/**
+ * MyApplication spring boot application
+ * Base code for spring boot
+ * 05 Aug 2023
+ */
 package za.ac.cput;
 
 import org.springframework.boot.SpringApplication;
