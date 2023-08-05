@@ -6,16 +6,23 @@
  */
 package za.ac.cput.domain;
 
-import java.util.Objects;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+import java.util.Objects;
+@Entity
 public class Vehicle {
+    @Id
     private String numberPlate;
     private String vehicleMake;
     private String vehicleColor;
     private String year;
     private String vehicleName;
+    @Embedded
+    private VehicleType vehicleType;
 
-    private Vehicle(){}
+    public Vehicle(){}
 
     //builder constructor
     private Vehicle(Builder builder){
@@ -24,6 +31,7 @@ public class Vehicle {
         this.vehicleColor = builder.vehicleColor;
         this.year = builder.year;
         this.vehicleName = builder.vehicleName;
+        this.vehicleType = builder.vehicleType;
     }
 
     public String getVehicleMake() {
@@ -34,14 +42,20 @@ public class Vehicle {
         return numberPlate;
     }
 
-    public String getvehicleColor() {
+    public String getVehicleColor() {
         return vehicleColor;
     }
+
     public String getYear() {
         return year;
     }
-    public String getvehicleName() {
+
+    public String getVehicleName() {
         return vehicleName;
+    }
+
+    public VehicleType getVehicleType() {
+        return vehicleType;
     }
 
     @Override
@@ -74,6 +88,7 @@ public class Vehicle {
         private String vehicleColor;
         private String year;
         private String vehicleName;
+        private VehicleType vehicleType;
 
         public Builder setNumberPlate(String numberPlate) {
             this.numberPlate = numberPlate;
@@ -96,6 +111,10 @@ public class Vehicle {
             return this;
         }
 
+        public Builder setVehicleType(VehicleType vehicleType) {
+            this.vehicleType = vehicleType;
+            return this;
+        }
 
         public Builder copy(Vehicle vehicle){
             this.numberPlate = vehicle.numberPlate;
@@ -103,6 +122,7 @@ public class Vehicle {
             this.vehicleColor = vehicle.vehicleColor;
             this.year = vehicle.year;
             this.vehicleName = vehicle.vehicleName;
+            this.vehicleType = vehicle.vehicleType;
             return this;
         }
 
