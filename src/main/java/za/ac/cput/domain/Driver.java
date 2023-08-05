@@ -1,3 +1,9 @@
+/**
+ * Driver.java
+ * Entity for the Driver
+ * @author: Tsireledzo Wisdom Makhado (221116273)
+ * Date: 06 June 2023
+ */
 package za.ac.cput.domain;
 
 import jakarta.persistence.*;
