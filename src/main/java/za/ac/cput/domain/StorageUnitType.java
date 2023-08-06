@@ -11,9 +11,12 @@
  */
 package za.ac.cput.domain;
 
+import jakarta.persistence.Embeddable;
+
 import java.io.Serializable;
 import java.util.Objects;
 
+@Embeddable
 public class StorageUnitType implements Serializable {
 
     private double length;
@@ -21,8 +24,9 @@ public class StorageUnitType implements Serializable {
     private double height;
     private int unitSize;
     private double price;
+    private StorageUnitType storageUnitType;
 
-    private StorageUnitType() {
+    public StorageUnitType() {
     }
 
     private StorageUnitType(Builder builder) {
@@ -40,20 +44,48 @@ public class StorageUnitType implements Serializable {
         return length;
     }
 
+    public void setLength(double length) {
+        this.length = length;
+    }
+
     public double getWidth() {
         return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
     }
 
     public double getHeight() {
         return height;
     }
 
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
     public int getUnitSize() {
         return unitSize;
     }
 
+    public void setUnitSize(int unitSize) {
+        this.unitSize = unitSize;
+    }
+
     public double getPrice() {
         return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public StorageUnitType getStorageUnitType() {
+        return storageUnitType;
+    }
+
+    public void setStorageUnitType(StorageUnitType storageUnitType) {
+        this.storageUnitType = storageUnitType;
     }
 
     @Override
