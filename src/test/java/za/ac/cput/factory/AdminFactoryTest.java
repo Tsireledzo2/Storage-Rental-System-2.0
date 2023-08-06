@@ -13,5 +13,4 @@ class AdminFactoryTest {
         assertNotNull(admin.getFirstName());
     }
 
-
 }
