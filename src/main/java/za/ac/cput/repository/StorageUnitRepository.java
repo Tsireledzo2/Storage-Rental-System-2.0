@@ -14,6 +14,7 @@ import java.util.Set;
 
 public interface StorageUnitRepository extends IRepository <StorageUnit, String> {
 
+
     public Set<StorageUnit> getAll();
 }
 
