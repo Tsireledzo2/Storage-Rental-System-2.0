@@ -1,9 +1,9 @@
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.InvoiceLine;
 
-import java.util.Set;
-
-public interface IInvoiceLineRepository extends IRepository<InvoiceLine, String> {
-    Set<InvoiceLine> getAll();
+@Repository
+public interface IInvoiceLineRepository extends JpaRepository<InvoiceLine,String> {
 }
