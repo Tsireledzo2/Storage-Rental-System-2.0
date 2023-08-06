@@ -7,20 +7,17 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.InvoiceLine;
-import za.ac.cput.util.Helper;
-
-import java.util.List;
 
 public class InvoiceLineFactory {
-    public static InvoiceLine createInvoiceLine(List invoiceline){
-        if (Helper.isNullorEmpty2(invoiceline)){
-            return null;
-        }
-        String invoicelineNumber = Helper.generateId();
+
+    public static InvoiceLine buildInvoiceLine(String invoiceLineId, String serviceDescription,int quantity,double unitPrice,double lineTotalAmount ){
 
         InvoiceLine invoiceLine = new InvoiceLine.Builder()
-                .setInvoiceListNumber(invoicelineNumber)
-                .setInvoiceline(invoiceline)
+                .setInvoiceLineId(invoiceLineId)
+                .setServiceDescription(serviceDescription)
+                .setQuantity(quantity)
+                .setUnitPrice(unitPrice)
+                .setLineTotalAmount(lineTotalAmount)
                 .build();
         return invoiceLine;
     }

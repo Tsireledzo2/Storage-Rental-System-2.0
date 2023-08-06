@@ -1,96 +1,80 @@
-/*
-Manager.java
-This is the Manager class
-author : Lithemba Nkqayi(220558558)
-6 June 2023
- */
 package za.ac.cput.domain;
 
+import jakarta.persistence.*;
+
+import java.util.Objects;
+
+@Entity
 public class Manager {
-    private String managerID;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String password;
-    private Manager() {
-    }
-    private Manager (Builder builder){
-        this.managerID = builder.managerID;
-        this.firstName = builder.firstName;
-        this.lastName = builder.lastName;
-        this.email = builder.email;
-        this.password = builder.password;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String managerIndex;
+    private String job_description;
+    @OneToOne
+    @JoinColumn(name = "employeeNumber")
+    private Employee employee;
 
-    }
-    public String getId() {
-        return managerID;
-    }
+    public Manager(){}
 
-    public String getFirstName() {
-        return firstName;
+    public Manager(Builder builder){
+        this.job_description = builder.job_description;
+        this.employee = builder.employee;
+    }
+    public String getManagerIndex() {
+        return managerIndex;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getJob_description() {
+        return job_description;
     }
 
-    public String getEmail() {
-        return email;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public String getPassword() {
-        return password;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Manager manager = (Manager) o;
+        return Objects.equals(managerIndex, manager.managerIndex) && Objects.equals(job_description, manager.job_description) && Objects.equals(employee, manager.employee);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(managerIndex, job_description, employee);
     }
 
     @Override
     public String toString() {
         return "Manager{" +
-                "managerID='" + managerID + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
+                "managerIndex='" + managerIndex + '\'' +
+                ", job_description='" + job_description + '\'' +
+                ", employee=" + employee +
                 '}';
     }
     public static class Builder{
-        private String managerID;
-        private String firstName;
-        private String lastName;
-        private String email;
-        private String password;
+        // private String managerIndex;
+        private String job_description;
+        private Employee employee;
 
-        public Builder setManagerID(String managerID) {
-            this.managerID = managerID;
+        public Builder setJob_description(String job_description) {
+            this.job_description = job_description;
             return this;
         }
 
-        public Builder setFirstName(String firstName) {
-            this.firstName = firstName;
+        public Builder setEmployee(Employee employee) {
+            this.employee = employee;
             return this;
         }
 
-        public Builder setLastName(String lastName) {
-            this.lastName = lastName;
+        public Builder Copy(Manager manager){
+            this.job_description = manager.job_description;
+            this.employee = manager.employee;
             return this;
         }
-
-        public Builder  setEmail(String email) {
-            this.email = email;
-            return this;
+        public Manager build(){
+            return new Manager(this);
         }
-
-        public Builder setPassword(String password) {
-            this.password = password;
-            return this;
-        }
-        public Builder copy (Manager manager){
-            this.managerID = manager.managerID;
-            this.firstName = manager.firstName;
-            this.lastName = manager.lastName;
-            this.email = manager.email;
-            this.password = manager.password;
-            return this;
-        }
-        public Manager build(){return new Manager(this);}
     }
 }

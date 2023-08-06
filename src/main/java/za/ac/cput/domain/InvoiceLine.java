@@ -6,60 +6,123 @@
  */
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
 import java.util.List;
+import java.util.Objects;
 
+@Entity
 public class InvoiceLine {
-    private String invoiceListNumber;
-    private List invoiceline;
+    @Id
+    private String invoiceLineId;
+    private String serviceDescription;
+    private int quantity;
+    private double unitPrice;
+    private double lineTotalAmount;
 
-    private InvoiceLine(){}
-
-    private InvoiceLine(Builder builder){
-        this.invoiceListNumber = builder.invoiceListNumber;
-        this.invoiceline = builder.invoiceline;
+    @ManyToOne
+    private Invoice invoice;
+    public InvoiceLine() {
+    }
+    public InvoiceLine(Builder builder) {
+        this.invoiceLineId = builder.invoiceLineId;
+        this.serviceDescription = builder.serviceDescription;
+        this.quantity = builder.quantity;
+        this.unitPrice = builder.unitPrice;
+        this.lineTotalAmount = builder.lineTotalAmount;
     }
 
-
-    public String getInvoiceListNumber() {
-        return invoiceListNumber;
+    public String getInvoiceLineId() {
+        return invoiceLineId;
     }
 
+    public String getServiceDescription() {
+        return serviceDescription;
+    }
 
-    public List getInvoiceline() {
-        return invoiceline;
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public double getLineTotalAmount() {
+        return lineTotalAmount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        InvoiceLine that = (InvoiceLine) o;
+        return quantity == that.quantity && Double.compare(that.unitPrice, unitPrice) == 0 && Double.compare(that.lineTotalAmount, lineTotalAmount) == 0 && Objects.equals(invoiceLineId, that.invoiceLineId) && Objects.equals(serviceDescription, that.serviceDescription);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(invoiceLineId, serviceDescription, quantity, unitPrice, lineTotalAmount);
     }
 
     @Override
     public String toString() {
-        return "InvoiceList{" +
-                "invoiceListNumber=" + invoiceListNumber +
-                ", invoiceline=" + invoiceline +
+        return "InvoiceLine{" +
+                "invoiceLineId='" + invoiceLineId + '\'' +
+                ", serviceDescription='" + serviceDescription + '\'' +
+                ", quantity=" + quantity +
+                ", unitPrice=" + unitPrice +
+                ", lineTotalAmount=" + lineTotalAmount +
                 '}';
     }
 
     public static class Builder{
+        private String invoiceLineId;
+        private String serviceDescription;
+        private int quantity;
+        private double unitPrice;
+        private double lineTotalAmount;
 
-        private String invoiceListNumber;
-        private List invoiceline;
-
-        public  Builder setInvoiceListNumber(String invoiceListNumber){
-            this.invoiceListNumber = invoiceListNumber;
+        public Builder setInvoiceLineId(String invoiceLineId) {
+            this.invoiceLineId = invoiceLineId;
             return this;
         }
 
-
-        public  Builder setInvoiceline(List invoiceline){
-            this.invoiceline = invoiceline;
+        public Builder setServiceDescription(String serviceDescription) {
+            this.serviceDescription = serviceDescription;
             return this;
         }
 
-        public Builder copy(InvoiceLine invoiceList){
-            this.invoiceListNumber = invoiceList.invoiceListNumber;
-            this.invoiceline = invoiceList.invoiceline;
+        public Builder setQuantity(int quantity) {
+            this.quantity = quantity;
             return this;
         }
+
+        public Builder setUnitPrice(double unitPrice) {
+            this.unitPrice = unitPrice;
+            return this;
+        }
+
+        public Builder setLineTotalAmount(double lineTotalAmount) {
+            this.lineTotalAmount = lineTotalAmount;
+            return this;
+        }
+
+        public Builder Copy(InvoiceLine invoiceLine){
+            this.invoiceLineId = invoiceLine.invoiceLineId;
+            this.serviceDescription = invoiceLine.serviceDescription;
+            this.quantity = invoiceLine.quantity;
+            this.unitPrice = invoiceLine.unitPrice;
+            this.lineTotalAmount = invoiceLine.lineTotalAmount;
+            return this;
+        }
+
         public InvoiceLine build(){
             return new InvoiceLine(this);
         }
     }
+
+
 }
