@@ -16,7 +16,7 @@ import za.ac.cput.factory.StorageUnitFactory;
 import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class StorageUnitRepositoryTest {
-    private static StorageUnitRepository storageUnitRepository = StorageUnitRepository.getStorageUnitRepository();
+    private static StorageUnitRepositoryImpl storageUnitRepository = StorageUnitRepositoryImpl.getStorageUnitRepository();
     private static StorageUnit storageUnit = StorageUnitFactory.createStorageUnit("small");
 
     @Test

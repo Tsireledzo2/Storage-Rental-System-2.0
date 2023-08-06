@@ -10,25 +10,25 @@
 package za.ac.cput.repository.impl;
 
 import za.ac.cput.domain.StorageUnitType;
-import za.ac.cput.repository.IStorageUnitTypeRepository;
+import za.ac.cput.repository.StorageUnitTypeRepository;
 
 import java.util.HashSet;
 import java.util.Set;
 
 
-    public class StorageUnitTypeRepository implements IStorageUnitTypeRepository {
+    public class StorageUnitTypeRepositoryImpl implements StorageUnitTypeRepository {
 
-        private static za.ac.cput.repository.impl.StorageUnitTypeRepository repository= null;
+        private static StorageUnitTypeRepositoryImpl repository= null;
 
         private Set<StorageUnitType> storageUnitTypeDB = null;
 
-        private StorageUnitTypeRepository(){
+        private StorageUnitTypeRepositoryImpl(){
             storageUnitTypeDB = new HashSet<StorageUnitType>();
         }
 
-        public static za.ac.cput.repository.impl.StorageUnitTypeRepository getStorageUnitTypeRepository(){
+        public static StorageUnitTypeRepositoryImpl getStorageUnitTypeRepository(){
             if (repository == null){
-                repository = new za.ac.cput.repository.impl.StorageUnitTypeRepository();
+                repository = new StorageUnitTypeRepositoryImpl();
             }
             return repository;
         }
