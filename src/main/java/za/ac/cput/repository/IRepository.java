@@ -1,20 +1,19 @@
-
 /**
- *  IRepository.java
- * Author Ruvimbo Ndoro 220128871
- * Date 10June 2023
+ * IRepository.java
+ * basecode
+ * Interface for the IRepository
+ * @author: Tsireledzo Wisdom Makhado (221116273)
+ * Date: 06 June 2023
  */
-
-
-
-
 package za.ac.cput.repository;
-
-public interface IRepository <objectType,string>{
-
+@Deprecated
+public interface IRepository<objectType, t> {
+    //crud
     objectType create(objectType objectType);
-    objectType read(string string);
-    objectType update(objectType objectType);
-    boolean delete(string string);
 
+    objectType read(t t);
+
+    objectType update(objectType objectType);
+
+    boolean delete(t t);
 }

@@ -1,10 +1,15 @@
 package za.ac.cput.domain;
+/*
+ * Checkout.java
+ * Checkout Entity
+ * @author: Argus Hakizimana Mbogo (220073260)
+ * Date: 09 June 2023
+ */
 
 public class Checkout {
-    private boolean driverStatus;
-    private boolean vehicleStatus;
+    private String driverStatus, vehicleStatus;
 
-    public Checkout(boolean driverStatus, boolean vehicleStatus) {
+    public Checkout(String driverStatus, String vehicleStatus) {
         this.driverStatus = driverStatus;
         this.vehicleStatus = vehicleStatus;
     }
@@ -14,11 +19,12 @@ public class Checkout {
         this.vehicleStatus = builder.vehicleStatus;
     }
 
-    public boolean isDriverStatus() {
+
+    public String getDriverStatus() {
         return driverStatus;
     }
 
-    public boolean isVehicleStatus() {
+    public String getVehicleStatus() {
         return vehicleStatus;
     }
 
@@ -30,17 +36,19 @@ public class Checkout {
                 '}';
     }
 
+    //
     public static class Builder {
 
-        private boolean driverStatus;
-        private boolean vehicleStatus;
+        private String driverStatus, vehicleStatus;
 
-        public Builder setDriverStatus(boolean driverStatus) {
-            this.driverStatus = driverStatus;return this;
+        public Builder setDriverStatus(String driverStatus) {
+            this.driverStatus = driverStatus;
+            return this;
         }
 
-        public Builder setVehicleStatus(boolean vehicleStatus) {
-            this.vehicleStatus = vehicleStatus;return this;
+        public Builder setVehicleStatus(String vehicleStatus) {
+            this.vehicleStatus = vehicleStatus;
+            return this;
         }
 
         public Builder copy(Checkout checkout) {
