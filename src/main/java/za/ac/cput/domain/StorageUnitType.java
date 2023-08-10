@@ -24,7 +24,6 @@ public class StorageUnitType implements Serializable {
     private double height;
     private int unitSize;
     private double price;
-    private StorageUnitType storageUnitType;
 
     public StorageUnitType() {
     }
@@ -80,14 +79,6 @@ public class StorageUnitType implements Serializable {
         this.price = price;
     }
 
-    public StorageUnitType getStorageUnitType() {
-        return storageUnitType;
-    }
-
-    public void setStorageUnitType(StorageUnitType storageUnitType) {
-        this.storageUnitType = storageUnitType;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -113,19 +104,11 @@ public class StorageUnitType implements Serializable {
     }
 
     public static class Builder {
-        private String id;
         private double length;
         private double width;
         private double height;
         private int unitSize;
         private double price;
-
-
-        public Builder setId(String id) {
-            this.id = id;
-            return this;
-        }
-
 
 
         public Builder setLength(double length) {
