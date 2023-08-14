@@ -25,8 +25,8 @@ public class Invoice {
     private String customerName;
     private Date invoiceDate;
 
-//    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
-//    private List<InvoiceLine> invoiceLines;
+    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
+    private List<InvoiceLine> invoiceLines;
 
 
     public Invoice() {
