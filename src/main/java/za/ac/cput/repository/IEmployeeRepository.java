@@ -2,8 +2,8 @@ package za.ac.cput.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import za.ac.cput.domain.InvoiceLine;
-
+import za.ac.cput.domain.Employee;
 @Repository
-public interface IInvoiceLineRepository extends JpaRepository<InvoiceLine,String> {
+public interface IEmployeeRepository extends JpaRepository<Employee,String> {
+
 }
