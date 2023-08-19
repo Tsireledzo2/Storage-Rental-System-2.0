@@ -7,14 +7,21 @@ package za.ac.cput.domain;
  * Date: 07 April 2023
  */
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.util.Date;
 import java.util.Objects;
-
+@Entity
 public class Booking {
+    @Id
     private String bookingNumber;
     private Date bookingDate, startDate, endDate;
     private boolean collection;
     private double totalAmount;
+
+    public Booking() {
+    }
 
     public Booking(Date bookingDate, Date startDate, Date endDate, boolean collection, double totalAmount) {
         this.bookingDate = bookingDate;
