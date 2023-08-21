@@ -8,8 +8,8 @@ package za.ac.cput.service;
 
 import za.ac.cput.domain.Vehicle;
 
-import java.util.Set;
+import java.util.List;
 
 public interface IVehicleService extends IService <Vehicle,String>{
-    public Set<Vehicle> getAll();
+    public List<Vehicle> getAll();
 }
