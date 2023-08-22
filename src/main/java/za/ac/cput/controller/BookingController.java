@@ -14,6 +14,7 @@ import za.ac.cput.service.impl.BookingServiceImpl;
 
 @RestController
 @RequestMapping("/booking")
+@CrossOrigin(origins = "http://localhost:8080")
 public class BookingController {
 
     @Autowired

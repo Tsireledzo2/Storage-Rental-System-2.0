@@ -15,6 +15,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/Checkin")
+@CrossOrigin(origins = "http://localhost:8080")
 public class CheckinController {
 
     @Autowired
@@ -25,10 +26,10 @@ public class CheckinController {
         return CheckinService.create(checkin);
     }
 
-    @PostMapping
+    @PostMapping("/read/{id}")
     public Checkin read(@PathVariable String id){return CheckinService.read(id);}
 
-    @PostMapping
+    @PostMapping("/update")
     public Checkin update (@RequestBody Checkin checkin) {
         return CheckinService.update(checkin);
     }

@@ -16,6 +16,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/Checkout")
+@CrossOrigin(origins = "http://localhost:8080")
 public class CheckoutController {
 
     @Autowired
@@ -26,10 +27,10 @@ public class CheckoutController {
         return CheckoutService.create(checkout);
     }
 
-    @PostMapping
+    @PostMapping("/read/{id}")
     public Checkout read(@PathVariable String id){return CheckoutService.read(id);}
 
-    @PostMapping
+    @PostMapping("/update")
     public Checkout update (@RequestBody Checkout checkout) {
         return CheckoutService.update(checkout);
     }
