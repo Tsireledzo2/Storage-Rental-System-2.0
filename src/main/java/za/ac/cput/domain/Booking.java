@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 
 import java.util.Date;
 import java.util.Objects;
+
 @Entity
 public class Booking {
     @Id

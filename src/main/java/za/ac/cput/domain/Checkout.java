@@ -20,6 +20,7 @@ public class Checkout {
         this.vehicleStatus = builder.vehicleStatus;
     }
 
+
     public String getDriverStatus() {
         return driverStatus;
     }
@@ -36,10 +37,10 @@ public class Checkout {
                 '}';
     }
 
+    //
     public static class Builder {
 
-        private String driverStatus;
-        private String vehicleStatus;
+        private String driverStatus, vehicleStatus;
 
         public Builder setDriverStatus(String driverStatus) {
             this.driverStatus = driverStatus;
