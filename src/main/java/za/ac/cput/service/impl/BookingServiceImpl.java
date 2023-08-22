@@ -16,7 +16,7 @@ import java.util.Set;
 public class BookingServiceImpl implements BookingService {
 
     private static BookingServiceImpl service = null;
-    private IBookingRepository repository = null;
+    private final IBookingRepository repository ;
 
     private BookingServiceImpl() {
         repository = BookingImpl.getRepository();
