@@ -1,5 +1,12 @@
 package za.ac.cput.controller;
 
+/*
+ * BookingController.java
+ * Booking Entity
+ * @author: Argus Hakizimana Mbogo (220073260)
+ * Date: 15 June 2023
+ */
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Booking;

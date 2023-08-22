@@ -17,7 +17,7 @@ public class CheckinServiceImpl implements CheckinService {
 
     private static CheckinServiceImpl service;
 
-    private ICheckinRepository repository;
+    private final ICheckinRepository repository;
 
     private CheckinServiceImpl() {
          repository = CheckinImpl.getRepository();
