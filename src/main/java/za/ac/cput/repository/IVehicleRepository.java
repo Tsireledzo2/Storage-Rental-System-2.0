@@ -6,10 +6,12 @@
  */
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Vehicle;
 
-import java.util.Set;
-
-public interface IVehicleRepository extends IRepository<Vehicle,String> {
-    public Set<Vehicle> getAll();
+import java.util.List;
+@Repository
+public interface IVehicleRepository extends JpaRepository<Vehicle,String> {
+    public List<Vehicle> getAll();
 }
