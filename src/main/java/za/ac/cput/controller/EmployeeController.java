@@ -1,3 +1,9 @@
+/*
+EmployeeController.java
+This is the EmployeeController class
+author : Lithemba Nkqayi(220558558)
+Date : 22 August 2023
+ */
 package za.ac.cput.controller;
 
 import za.ac.cput.domain.Employee;

@@ -1,3 +1,9 @@
+/*
+AdminController.java
+This is the AdminController class
+author : Lithemba Nkqayi(220558558)
+Date : 22 August 2023
+ */
 package za.ac.cput.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
