@@ -10,12 +10,10 @@ import za.ac.cput.domain.*;
 import za.ac.cput.util.Helper;
 
 public class DriverFactory {
-    public static Driver buildDriver(String job_description,Employee employee){
-        if(Helper.isNullorEmpty(job_description)){
+    public static Driver buildDriver(String licenceNumber,String job_description,Employee employee){
+        if(Helper.isNullorEmpty(licenceNumber)||Helper.isNullorEmpty(job_description)){
             return null;
         }
-
-        String licenceNumber = Helper.generateNumber();
 
         Driver driver = new Driver.Builder()
                 .setLicence_number(licenceNumber)
