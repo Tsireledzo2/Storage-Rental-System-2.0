@@ -3,40 +3,45 @@ package za.ac.cput.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Invoice;
+import za.ac.cput.repository.IInvoiceRepository;
 import za.ac.cput.service.IInvoice;
 
 import java.util.List;
-
 @Service
 public class InvoiceService implements IInvoice {
-    private InvoiceService invoiceService;
 
+    private IInvoiceRepository invoice ;
     @Autowired
-    public InvoiceService(InvoiceService invoiceService){
-        this.invoiceService = invoiceService;
+    public InvoiceService(IInvoiceRepository invoice){
+        this.invoice=invoice;
+    }
+    @Override
+    public Invoice create(Invoice t) {
+        return invoice.save(t);
     }
 
     @Override
-    public IInvoice create(IInvoice T) {
-        return null;
+    public Invoice read(String s) {
+        return this.invoice.findById(s).orElse(null);
     }
 
     @Override
-    public IInvoice read(String s) {
-        return null;
-    }
-
-    @Override
-    public IInvoice update(IInvoice T) {
+    public Invoice update(Invoice invoice) {
+        if (this.invoice.existsById(invoice.getInvoiceNumber()))
+            return this.invoice.save(invoice);
         return null;
     }
 
     @Override
     public boolean delete(String s) {
-        return false;
+        if (this.invoice.existsById(s)){
+            this.invoice.deleteById(s);
+        }
+        return false ;
     }
+
     @Override
     public List<Invoice> getAll() {
-        return null;
+        return this.invoice.findAll();
     }
 }
