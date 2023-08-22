@@ -1,0 +1,40 @@
+package za.ac.cput.controller;
+
+import za.ac.cput.domain.Employee;
+import za.ac.cput.service.impl.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@CrossOrigin(origins = "http://localhost:4200/")
+@RestController
+public class EmployeeController {
+
+    @Autowired
+    EmployeeService employeeService;
+    @PostMapping("/createVehicle")
+    public Employee create(@RequestBody Employee employee){
+        return employeeService.create(employee);
+    }
+
+    @GetMapping("/getEmployee/{employeeNumber}")
+    public Employee read(@PathVariable String employeeNumber){
+        return employeeService.read(employeeNumber);
+    }
+
+    @PostMapping("/updateEmployee")
+    public Employee update(@RequestBody Employee employee){
+        return employeeService.update(employee);
+    }
+
+    @DeleteMapping("/deleteEmployee/{employeeNumber}")
+    public boolean delete(@PathVariable String employeeNumber){
+        return employeeService.delete(employeeNumber);
+    }
+
+    @GetMapping("/getAllEmployee")
+    public List<Employee> getAll(){
+        return employeeService.getAll();
+    }
+}
