@@ -2,9 +2,8 @@ package za.ac.cput.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.domain.Employee;
 import za.ac.cput.domain.Vehicle;
-import za.ac.cput.service.impl.VehicleServiceImpl;
+import za.ac.cput.service.impl.VehicleService;
 
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
 public class VehicleController {
 
     @Autowired
-    VehicleServiceImpl vehicleService;
+    VehicleService vehicleService;
     @PostMapping("/createVehicle")
     public Vehicle create(@RequestBody Vehicle employee){
         return vehicleService.create(employee);
@@ -36,6 +35,6 @@ public class VehicleController {
 
     @GetMapping("/getAllVehicles")
     public List<Vehicle> getAll(){
-        return  vehicleService.getAll();
+        return vehicleService.getAll();
     }
 }
