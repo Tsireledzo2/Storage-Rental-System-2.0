@@ -6,27 +6,22 @@
  */
 package za.ac.cput.factory;
 
-import za.ac.cput.domain.Driver;
+import za.ac.cput.domain.*;
 import za.ac.cput.util.Helper;
 
 public class DriverFactory {
-    public static Driver buildDriver(String firstName, String lastName, String email, String password){
-        if(Helper.isNullorEmpty(firstName)||Helper.isNullorEmpty(lastName)){
+    public static Driver buildDriver(String job_description,Employee employee){
+        if(Helper.isNullorEmpty(job_description)){
             return null;
         }
 
         String licenceNumber = Helper.generateNumber();
-        if(!Helper.isValidEmail(email)){
-            return null;
-        }
 
         Driver driver = new Driver.Builder()
-                .setLicenceNumber(licenceNumber)
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(email)
-                .setPassword(password)
-                .build();
+                .setLicence_number(licenceNumber)
+                .setJob_description(job_description)
+                .setEmployee(employee)
+                .buildDriver();
         return driver;
     }
 }
