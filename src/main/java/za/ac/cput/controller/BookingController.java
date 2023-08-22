@@ -18,8 +18,8 @@ public class BookingController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public boolean delete(@RequestBody Booking booking) {
-        return bookingService.delete(booking.getBookingNumber());
+    public boolean delete(@PathVariable String id) {
+        return bookingService.delete(id);
     }
 
     @GetMapping("/getAll")
