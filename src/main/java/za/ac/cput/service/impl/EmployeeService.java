@@ -1,3 +1,10 @@
+/*
+EmployeeService.java
+This is the EmployeeService class
+author : Lithemba Nkqayi(220558558)
+Date : 28 July 2023
+ */
+
 package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
