@@ -25,6 +25,7 @@ public class InvoiceLine {
     @ManyToOne
     private Invoice invoice;
     public InvoiceLine() {
+        //try
     }
     public InvoiceLine(Builder builder) {
         this.invoiceLineId = builder.invoiceLineId;
