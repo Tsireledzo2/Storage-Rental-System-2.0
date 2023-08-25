@@ -19,7 +19,7 @@ class StorageUnitFactoryTest {
     void createStorageUnitFactory() {
         StorageUnit storageUnit = StorageUnitFactory.buildStorageUnit("8y7t98r8", "medium", 8, 9, 8, 80, 900 );
         System.out.println("StorageUnit: " + storageUnit);
-        assertNotNull(storageUnit.getDescription());
+        assertNotNull(storageUnit.getStorageUnitType());
 
     }
 }
