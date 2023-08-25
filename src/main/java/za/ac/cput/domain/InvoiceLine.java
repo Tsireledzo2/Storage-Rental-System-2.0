@@ -110,7 +110,7 @@ public class InvoiceLine {
             return this;
         }
 
-        public Builder Copy(InvoiceLine invoiceLine){
+        public Builder copy(InvoiceLine invoiceLine){
             this.invoiceLineId = invoiceLine.invoiceLineId;
             this.serviceDescription = invoiceLine.serviceDescription;
             this.quantity = invoiceLine.quantity;
