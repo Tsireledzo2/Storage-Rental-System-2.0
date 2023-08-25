@@ -18,28 +18,31 @@ import java.util.Objects;
 @Entity
 public class StorageUnit implements Serializable {
 
- @Id
+    @Id
     private String unitId;
     private String unitSizeDescription;
     @Embedded
     private StorageUnitType storageUnitType;
+
+
     public StorageUnit() {
     }
+
     private StorageUnit(Builder builder) {
         this.unitId = builder.unitId;
         this.unitSizeDescription = builder.unitSizeDescription;
-
+        this.storageUnitType = builder.storageUnitType;
     }
-
     public String getUnitId() {
-
         return unitId;
     }
-    public String getDescription() {
 
+    public String getUnitSizeDescription() {
         return unitSizeDescription;
     }
-
+    public StorageUnitType getStorageUnitType(){
+        return storageUnitType;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -65,7 +68,7 @@ public class StorageUnit implements Serializable {
     public static class Builder {
         private String unitId;
         private String unitSizeDescription;
-
+        private StorageUnitType storageUnitType;
 
         public Builder setUnitId(String unitId) {
             this.unitId = unitId;
@@ -81,8 +84,14 @@ public class StorageUnit implements Serializable {
         public Builder copy(StorageUnit storageUnit) {
             this.unitId = storageUnit.unitId;
             this.unitSizeDescription = storageUnit.unitSizeDescription;
+            this.storageUnitType = storageUnit.storageUnitType;
             return this;
 
+        }
+
+        public Builder setStorageUnitType(StorageUnitType storageUnitType) {
+            this.storageUnitType = storageUnitType;
+            return this;
         }
 
         public StorageUnit build() {
@@ -91,4 +100,3 @@ public class StorageUnit implements Serializable {
 
     }
 }
-

@@ -8,11 +8,12 @@
 
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import za.ac.cput.domain.StorageUnit;
 
 import java.util.Set;
 
-public interface StorageUnitRepository extends IRepository <StorageUnit, String> {
+public interface StorageUnitRepository extends JpaRepository<StorageUnit, String> {
 
 
     public Set<StorageUnit> getAll();

@@ -28,10 +28,8 @@ public class StorageUnitType implements Serializable {
     private double height;
     private int unitSize;
     private double price;
-
     public StorageUnitType() {
     }
-
     private StorageUnitType(Builder builder) {
 
         this.length = builder.length;
@@ -39,7 +37,6 @@ public class StorageUnitType implements Serializable {
         this.height = builder.height;
         this.unitSize = builder.unitSize;
         this.price = builder.price;
-
 
     }
 
@@ -139,7 +136,6 @@ public class StorageUnitType implements Serializable {
             this.price = price;
             return this;
         }
-
         public Builder copy(StorageUnitType storageUnitType) {
             this.length = storageUnitType.length;
             this.width = storageUnitType.width;
@@ -148,7 +144,6 @@ public class StorageUnitType implements Serializable {
             this.price = storageUnitType.price;
             return this;
         }
-
         public StorageUnitType build() {
             return new StorageUnitType(this);
 
