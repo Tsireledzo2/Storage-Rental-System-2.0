@@ -6,43 +6,50 @@ Date : 11 June 2023
  */
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Manager;
+import za.ac.cput.repository.IManagerRepository;
 import za.ac.cput.service.IManagerService;
-import za.ac.cput.repository.impl.ManagerImpl;
-import java.util.Set;
 
+import java.util.List;
+@Service
 public class ManagerServiceImpl implements IManagerService{
-    private static ManagerServiceImpl managerService = null;
-    private static ManagerImpl managerRepository = null;
-    private ManagerServiceImpl(){
-        managerRepository = ManagerImpl.getManagerRepository();
+    private IManagerRepository managerRepository;
+    @Autowired
+    private ManagerServiceImpl(IManagerRepository managerRepository){
+        this.managerRepository = managerRepository;
     }
     @Override
-    public Set<Manager> getAll() {
+    public List<Manager> getAll() {
         return managerRepository.getAll();
     }
 
     @Override
     public Manager create(Manager manager) {
-        Manager created = managerRepository.create(manager);
+        Manager created = managerRepository.save(manager);
         return created;
     }
 
     @Override
-    public Manager read(String managerID) {
-        Manager readManager = managerRepository.read(managerID);
+    public Manager read(String managerIndex) {
+        Manager readManager = managerRepository.findById(managerIndex).orElse(null);
         return readManager;
     }
 
     @Override
     public Manager update(Manager manager) {
-        Manager updateManager = managerRepository.update(manager);
-        return updateManager;
+        if(this.managerRepository.existsById(manager.getManagerIndex()))
+            return this.managerRepository.save(manager);
+        return null;
     }
 
     @Override
-    public boolean delete(String managerID) {
-        boolean success = managerRepository.delete(managerID);
-        return success;
+    public boolean delete(String managerIndex) {
+        if(this.managerRepository.existsById(managerIndex)) {
+            this.managerRepository.deleteById(managerIndex);
+            return true;
+        }
+        return false;
     }
 }

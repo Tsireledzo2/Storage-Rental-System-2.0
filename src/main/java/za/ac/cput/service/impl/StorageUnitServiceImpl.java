@@ -1,51 +1,57 @@
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import za.ac.cput.domain.Employee;
 import za.ac.cput.domain.StorageUnit;
 
-import za.ac.cput.repository.impl.StorageUnitRepositoryImpl;
-
+import za.ac.cput.repository.StorageUnitRepository;
 import za.ac.cput.service.StorageUnitService;
 
+import java.util.List;
 import java.util.Set;
-
+@Service
 public class StorageUnitServiceImpl implements StorageUnitService {
 
-    private static StorageUnitServiceImpl service= null;
-    private static StorageUnitRepositoryImpl storageUnitRepository = null;
 
-    private StorageUnitServiceImpl(){
-
-        storageUnitRepository = StorageUnitRepositoryImpl.getStorageUnitRepository();
+    private static StorageUnitRepository repository = null;
+ @Autowired
+    private StorageUnitServiceImpl(StorageUnitRepository repository){
+        this.repository = repository;
     }
 
-    public static StorageUnitServiceImpl getStorageUnitService(){
-        if(service ==null){
-            service = new StorageUnitServiceImpl();
-        }
-        return service;
-    }
+
 
     @Override
     public StorageUnit create(StorageUnit storageUnit) {
-        StorageUnit created= storageUnitRepository.create(storageUnit);
-        return created;
+        return this.repository.save(storageUnit);
     }
 
     @Override
     public StorageUnit read(String unitID) {
-        StorageUnit read = storageUnitRepository.read(unitID);
-        return read;
+        return  this.repository.findById(unitID).orElse(null);
 
     }
 
+    public StorageUnit update(StorageUnit storageUnit) {
+        if (this.repository.existsById(storageUnit.getUnitId()))
+            return this.repository.save(storageUnit);
+        return null;
+
+
+    }
     @Override
     public boolean delete(String unitId) {
-        boolean success = storageUnitRepository.delete(unitId);
-        return success;
+            if (this.repository.existsById(unitId)) {
+                this.repository.deleteById(unitId);
+                return true;
+            }
+            return false;
+
     }
 
     @Override
-    public Set<StorageUnit> getAll() {
-        return storageUnitRepository.getAll();
+    public List <StorageUnit> getAll() {
+    return this.repository.findAll();
     }
 }

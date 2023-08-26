@@ -7,8 +7,9 @@ Customer Service interface
  */
 import za.ac.cput.domain.Customer;
 
+import java.util.List;
 import java.util.Set;
     public interface ICustomerService extends IService<Customer,String> {
-        public Set<Customer>getAll();
+        public List<Customer> getAll();
     }
 

@@ -4,16 +4,23 @@ Ndumiso Nkululeko Ngcobo
 This is customer class
 220094861
  */
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Customer {
-    private String customerId;
+   @Id
+   private String customerId;
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
 
-    private Customer(){
+   public Customer(){
 
-    }
+   }
     private Customer(Builder builder){
         this.customerId = builder.customerId;
         this.email = builder.email;

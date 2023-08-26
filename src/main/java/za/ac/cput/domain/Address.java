@@ -1,15 +1,24 @@
 package za.ac.cput.domain;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 /*
 Ndumiso Nkululeko Ngcobo
 220094861
 This is an Address Class
  */
+@Entity
 public class Address {
+    @Id
+    @GeneratedValue
+    private String id;
 private String streetNumber;
     private String streetName;
     private String state;
     private String zipCode;
-    private Address(){
+    public Address(){
 
     }
     public String getStreetNumber() {
