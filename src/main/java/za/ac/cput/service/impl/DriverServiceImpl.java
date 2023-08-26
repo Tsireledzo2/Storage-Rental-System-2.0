@@ -1,54 +1,54 @@
+/**
+ * DriverServiceImpl.java
+ * Class for the DriverServiceImpl
+ * @author: Tsireledzo Wisdom Makhado (221116273)
+ * Date: 06 June 2023
+ */
 package za.ac.cput.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Driver;
-import za.ac.cput.repository.impl.DriverRepositoryImpl;
+import za.ac.cput.repository.IDriverRepository;
 import za.ac.cput.service.DriverService;
 
-import java.util.Set;
-
+import java.util.List;
+@Service
 public class DriverServiceImpl implements DriverService {
-    private static DriverServiceImpl driverService = null;
-    private static DriverRepositoryImpl driverRepository = null;
+    private static IDriverRepository driverRepository;
 
-    private DriverServiceImpl(){
-
-        driverRepository = DriverRepositoryImpl.getDriverRepository();
+    @Autowired
+    private DriverServiceImpl(IDriverRepository driverRepository){
+        this.driverRepository = driverRepository;
     }
-
-    public static DriverServiceImpl getDriverService(){
-        if(driverService ==null){
-            driverService = new DriverServiceImpl();
-        }
-        return driverService;
-    }
-
-
 
     @Override
     public Driver create(Driver driver) {
-        Driver createDriver = driverRepository.create(driver);
-        return createDriver;
+        return this.driverRepository.save(driver);
     }
 
     @Override
     public Driver read(String licenceNumber) {
-        Driver readDriver = driverRepository.read(licenceNumber);
-        return readDriver;
+        return this.driverRepository.findById(licenceNumber).orElse(null);
     }
 
     @Override
     public Driver update(Driver driver) {
-        Driver updateDriver = driverRepository.update(driver);
-        return updateDriver;
+        if(this.driverRepository.existsById(driver.getLicence_number()))
+            return this.driverRepository.save(driver);
+        return null;
     }
 
     @Override
     public boolean delete(String licenceNumber) {
-        boolean success = driverRepository.delete(licenceNumber);
-        return success;
+        if(this.driverRepository.existsById(licenceNumber)) {
+            this.driverRepository.deleteById(licenceNumber);
+            return true;
+        }
+        return false;
     }
     @Override
-    public Set<Driver> getAll() {
-        return driverRepository.getAll();
+    public List<Driver> getAll() {
+        return this.driverRepository.findAll();
     }
 }
