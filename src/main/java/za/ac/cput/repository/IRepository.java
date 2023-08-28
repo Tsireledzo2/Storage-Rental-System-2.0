@@ -6,10 +6,14 @@
  * Date: 06 June 2023
  */
 package za.ac.cput.repository;
-
-public interface IRepository<objectType,string> {
+@Deprecated
+public interface IRepository<objectType, t> {
+    //crud
     objectType create(objectType objectType);
-    objectType read(string string);
+
+    objectType read(t t);
+
     objectType update(objectType objectType);
-    boolean delete(string string);
+
+    boolean delete(t t);
 }

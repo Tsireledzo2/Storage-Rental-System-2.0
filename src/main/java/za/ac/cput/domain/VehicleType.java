@@ -8,12 +8,15 @@
 
 package za.ac.cput.domain;
 
+import jakarta.persistence.*;
+
+@Embeddable
 public class VehicleType {
     private String vehicleDescription;
     private int capacity;
     private double vehiclePrice;
 
-    private VehicleType(){}
+    public VehicleType(){}
 
     private VehicleType(Builder builder){
         this.vehicleDescription = builder.vehicleDescription;
@@ -33,12 +36,24 @@ public class VehicleType {
         return vehiclePrice;
     }
 
+    public void setVehicleDescription(String vehicleDescription) {
+        this.vehicleDescription = vehicleDescription;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public void setVehiclePrice(double vehiclePrice) {
+        this.vehiclePrice = vehiclePrice;
+    }
+
     @Override
     public String toString() {
         return "VehicleType{" +
-                "name='" + vehicleDescription + '\'' +
-                ", capacity=" + capacity +
-                ", price=" + vehiclePrice +
+                "vehicle size description: " + vehicleDescription + '\'' +
+                ", capacity: " + capacity +" large boxes" +
+                ", price: " + "R"+vehiclePrice +
                 '}';
     }
 
