@@ -8,11 +8,15 @@ package za.ac.cput.repository;
  * Date: 07 April 2023
  */
 
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Booking;
 
 import java.util.Set;
+@Repository
+public interface IBookingRepository extends JpaRepository<Booking, String> {
 
-public interface IBookingRepository extends IRepository<Booking, String> {
 
     Set<Booking> getAll();
 }
