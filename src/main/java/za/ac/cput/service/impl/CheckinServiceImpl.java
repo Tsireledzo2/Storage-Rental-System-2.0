@@ -6,50 +6,51 @@ package za.ac.cput.service.impl;
  * Date: 09 June 2023
  */
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Checkin;
-import za.ac.cput.repository.ICheckinRepository;
-import za.ac.cput.repository.impl.CheckinImpl;
+import za.ac.cput.repository.ICheckinRepository;;
 import za.ac.cput.service.CheckinService;
 
 import java.util.Set;
-
+@Service
 public class CheckinServiceImpl implements CheckinService {
-
-    private static CheckinServiceImpl service;
 
     private final ICheckinRepository repository;
 
-    private CheckinServiceImpl() {
-         repository = CheckinImpl.getRepository();
+    @Autowired
+    private CheckinServiceImpl(ICheckinRepository repository) {
+
+        this.repository = repository;
     }
 
-    public static CheckinServiceImpl getService() {
-        return (service == null)? service = new CheckinServiceImpl(): service;
-    }
-
-    @Override
-    public Checkin create(Checkin checkin) {
-        return repository.create(checkin);
-    }
-
-    @Override
-    public Checkin read(String s) {
-        return repository.read(s);
-    }
-
-    @Override
-    public Checkin update(Checkin checkin) {
-        return repository.create(checkin);
-    }
-
-    @Override
-    public boolean delete(String s) {
-        return repository.delete(s);
-    }
 
     @Override
     public Set<Checkin> getAll() {
         return repository.getAll();
     }
 
+    @Override
+    public Checkin create(Checkin checkin) {
+    return this.repository.save(checkin);
+    }
+
+    @Override
+    public Checkin read(String id) {
+        return this.repository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Checkin update(Checkin checkin) {
+        return this.repository.save(checkin);
+    }
+
+    @Override
+    public boolean delete(String id) {
+        if (this.repository.existsById(id)) {
+            this.repository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
 }
