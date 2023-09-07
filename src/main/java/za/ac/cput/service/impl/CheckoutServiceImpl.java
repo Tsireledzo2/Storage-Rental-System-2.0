@@ -6,6 +6,7 @@ package za.ac.cput.service.impl;
  * Date: 09 June 2023
  */
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Checkout;
 import za.ac.cput.repository.ICheckoutRepository;
 import za.ac.cput.repository.impl.CheckoutImpl;
@@ -13,7 +14,7 @@ import za.ac.cput.service.CheckoutService;
 import za.ac.cput.service.IService;
 
 import java.util.Set;
-
+@Service
 public class CheckoutServiceImpl implements CheckoutService {
 
     private static CheckoutServiceImpl service;

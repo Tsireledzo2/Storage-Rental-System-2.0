@@ -7,12 +7,13 @@ package za.ac.cput.service.impl;
  * Date: 09 June 2023
  */
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Booking;
 import za.ac.cput.repository.IBookingRepository;
 import za.ac.cput.repository.impl.BookingImpl;
 import za.ac.cput.service.BookingService;
 import java.util.Set;
-
+@Service
 public class BookingServiceImpl implements BookingService {
 
     private static BookingServiceImpl service = null;

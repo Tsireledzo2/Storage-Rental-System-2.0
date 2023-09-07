@@ -6,13 +6,14 @@ package za.ac.cput.service.impl;
  * Date: 09 June 2023
  */
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Checkin;
 import za.ac.cput.repository.ICheckinRepository;
 import za.ac.cput.repository.impl.CheckinImpl;
 import za.ac.cput.service.CheckinService;
 
 import java.util.Set;
-
+@Service
 public class CheckinServiceImpl implements CheckinService {
 
     private static CheckinServiceImpl service;
