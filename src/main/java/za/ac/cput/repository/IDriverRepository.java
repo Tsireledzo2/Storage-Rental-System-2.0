@@ -13,6 +13,5 @@ import za.ac.cput.domain.Driver;
 import java.util.List;
 @Repository
 public interface IDriverRepository extends JpaRepository<Driver,String> {
-   // public List<Driver> getAll();
-   Driver findByEmployee_EmployeeNumber(String employeeNumber);
+    public List<Driver> getAll();
 }

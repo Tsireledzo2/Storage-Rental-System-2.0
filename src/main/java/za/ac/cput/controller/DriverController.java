@@ -9,12 +9,11 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200/")
 @RestController
-@RequestMapping("/driver")
 public class DriverController {
 
     @Autowired
     DriverServiceImpl driverService;
-    @PostMapping("/createDriver")
+    @PostMapping("/createVehicle")
     public Driver create(@RequestBody Driver driver){
         return driverService.create(driver);
     }
