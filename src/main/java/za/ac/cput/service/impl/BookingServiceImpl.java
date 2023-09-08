@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Booking;
 import za.ac.cput.repository.IBookingRepository;
 import za.ac.cput.service.BookingService;
+
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -54,9 +56,13 @@ public class BookingServiceImpl implements BookingService {
 
     }
 
-    @Override
-    public Set<Booking> getAll() {
-        return repository.getAll();
+    public List<Booking> getBookingsWithCollections() {
+        return this.repository.getBookingsWithCollection();
     }
+
+//    @Override
+//    public Set<Booking> getAll() {
+//        return repository.getAll();
+//    }
 
 }

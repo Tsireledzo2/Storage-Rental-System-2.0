@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Booking;
 import za.ac.cput.service.impl.BookingServiceImpl;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/booking")
 @CrossOrigin(origins = "http://localhost:8080")
@@ -30,9 +32,14 @@ public class BookingController {
         return bookingService.delete(id);
     }
 
-    @GetMapping("/getAll")
-    public Iterable<Booking> getAll() {
-        return bookingService.getAll();
+//    @GetMapping("/getAll")
+//    public Iterable<Booking> getAll() {
+//        return bookingService.getAll();
+//    }
+
+    @GetMapping("/collections")
+    public List<Booking> getCollections() {
+        return bookingService.getBookingsWithCollections();
     }
 
 
