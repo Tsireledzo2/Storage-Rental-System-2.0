@@ -6,10 +6,14 @@ package za.ac.cput.repository;
  * Date: 09 June 2023
  */
 
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Checkout;
 
 import java.util.Set;
+@Repository
+public interface ICheckoutRepository extends JpaRepository<Checkout, String> {
 
-public interface ICheckoutRepository extends IRepository<Checkout, String>{
     Set<Checkout> getAll();
 }

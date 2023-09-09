@@ -7,7 +7,8 @@ package za.ac.cput.domain;
  */
 
 public class Checkout {
-    private String driverStatus, vehicleStatus;
+    private String driverStatus;
+    private String  vehicleStatus;
 
     public Checkout(String driverStatus, String vehicleStatus) {
         this.driverStatus = driverStatus;

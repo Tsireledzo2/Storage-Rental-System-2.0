@@ -6,51 +6,59 @@ package za.ac.cput.service.impl;
  * Date: 09 June 2023
  */
 
+
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Checkout;
 import za.ac.cput.repository.ICheckoutRepository;
-import za.ac.cput.repository.impl.CheckoutImpl;
+
 import za.ac.cput.service.CheckoutService;
-import za.ac.cput.service.IService;
+
 
 import java.util.Set;
-
+@Service
 public class CheckoutServiceImpl implements CheckoutService {
 
-    private static CheckoutServiceImpl service;
+    private final ICheckoutRepository repository;
 
-    private ICheckoutRepository repository;
+    private CheckoutServiceImpl(ICheckoutRepository repository) {
 
-    private CheckoutServiceImpl() {
-        repository = CheckoutImpl.getCheckOutRepository();
+        this.repository = repository;
     }
 
-    public static CheckoutServiceImpl getService() {
-        return (service == null)? service = new CheckoutServiceImpl(): null;
+    @Override
+    public Set<Checkout> getAll() {
+        return this.repository.getAll();
     }
 
     @Override
     public Checkout create(Checkout checkout) {
-        return repository.create(checkout);
+
+        return this.repository.save(checkout);
+
     }
 
     @Override
-    public Checkout read(String s) {
-        return repository.read(s);
+    public Checkout read(String id) {
+
+        return this.repository.findById(id).orElse(null);
+
     }
 
     @Override
     public Checkout update(Checkout checkout) {
-        return repository.update(checkout);
+
+        return this.repository.save(checkout);
+
     }
 
     @Override
-    public boolean delete(String s) {
-        return repository.delete(s);
-    }
+    public boolean delete(String id) {
 
+        if (this.repository.existsById(id)) {
+            this.repository.deleteById(id);
+            return true;
+        }
+        return false;
 
-    @Override
-    public Set<Checkout> getAll() {
-        return repository.getAll();
     }
 }
