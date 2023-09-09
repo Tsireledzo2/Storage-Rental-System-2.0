@@ -9,6 +9,9 @@ package za.ac.cput.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -22,6 +25,10 @@ public class Booking {
     private boolean collection;
     private double totalAmount;
 
+    @OneToOne
+    @JoinColumn(name = "CustomerEmail")
+    private Customer customer;
+
     public Booking() {
     }
 
@@ -31,6 +38,7 @@ public class Booking {
         this.endDate = endDate;
         this.collection = collection;
         this.totalAmount = totalAmount;
+
     }
 
     @Override
@@ -58,6 +66,7 @@ public class Booking {
         this.endDate = builder.endDate;
         this.collection = builder.collection;
         this.totalAmount = builder.totalAmount;
+        this.customer = builder.customer;
 
     }
 
@@ -104,6 +113,7 @@ public class Booking {
         private Date bookingDate, startDate, endDate;
         private boolean collection;
         private double totalAmount;
+        private Customer customer;
 
         public Builder setBookingNumber(String bookingNumber) {
             this.bookingNumber = bookingNumber;
@@ -135,6 +145,11 @@ public class Booking {
             return this;
         }
 
+        public Builder setCustomer(Customer customer) {
+            this.customer = customer;
+            return this;
+        }
+
         public Builder copy(Booking booking) {
             this.bookingNumber = booking.bookingNumber;
             this.bookingDate = booking.bookingDate;
@@ -142,6 +157,7 @@ public class Booking {
             this.endDate = booking.endDate;
             this.collection = booking.collection;
             this.totalAmount = booking.totalAmount;
+            this.customer = booking.customer;
             return this;
         }
 
@@ -150,5 +166,3 @@ public class Booking {
         }
     }
 }
-
-
