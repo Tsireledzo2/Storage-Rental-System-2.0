@@ -8,13 +8,14 @@ package za.ac.cput.factory;
  */
 
 import za.ac.cput.domain.Booking;
+import za.ac.cput.domain.Customer;
 import za.ac.cput.util.Helper;
 
 import java.util.Date;
 
 public class BookingFactory {
 
-    public static Booking createBooking(Date bookingDate, Date startDate, Date endDate, boolean collection, double totalAmount) {
+    public static Booking createBooking(Date bookingDate, Date startDate, Date endDate, boolean collection, double totalAmount, Customer customer) {
 
         if (Helper.isNullorEmpty(bookingDate.toString()) || Helper.isNullorEmpty(startDate.toString())) {
             return null;
@@ -29,6 +30,7 @@ public class BookingFactory {
                 .setEndDate(endDate)
                 .setCollection(collection)
                 .setTotalAmount(totalAmount)
+                .setCustomer(customer)
                 .build();
         return booking;
 

@@ -26,38 +26,13 @@ public class Booking {
     private double totalAmount;
 
     @OneToOne
-    @JoinColumn(name = "CustomerEmail")
+    @JoinColumn(name = "customerId")
     private Customer customer;
 
     public Booking() {
     }
 
-    public Booking(Date bookingDate, Date startDate, Date endDate, boolean collection, double totalAmount) {
-        this.bookingDate = bookingDate;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.collection = collection;
-        this.totalAmount = totalAmount;
 
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Booking booking = (Booking) o;
-        return collection == booking.collection
-                && Double.compare(booking.totalAmount, totalAmount) == 0
-                && Objects.equals(bookingNumber, booking.bookingNumber)
-                && Objects.equals(bookingDate, booking.bookingDate)
-                && Objects.equals(startDate, booking.startDate)
-                && Objects.equals(endDate, booking.endDate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(bookingNumber, bookingDate, startDate, endDate, collection, totalAmount);
-    }
 
     private Booking(Builder builder) {
         this.bookingNumber = builder.bookingNumber;
@@ -92,6 +67,10 @@ public class Booking {
 
     public double getTotalAmount() {
         return totalAmount;
+    }
+
+    public Customer getCustomer() {
+        return customer;
     }
 
     @Override
