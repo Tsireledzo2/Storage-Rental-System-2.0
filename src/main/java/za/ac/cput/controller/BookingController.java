@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/booking")
-@CrossOrigin(origins = "http://localhost:8080")
+//@CrossOrigin(origins = "http://localhost:8080")
 public class BookingController {
 
     @Autowired
@@ -32,10 +32,10 @@ public class BookingController {
         return bookingService.delete(id);
     }
 
-//    @GetMapping("/getAll")
-//    public Iterable<Booking> getAll() {
-//        return bookingService.getAll();
-//    }
+    @GetMapping("/getAll")
+    public List<Booking> getAll() {
+        return bookingService.getAll();
+    }
 
     @GetMapping("/collections")
     public List<Booking> getCollections() {

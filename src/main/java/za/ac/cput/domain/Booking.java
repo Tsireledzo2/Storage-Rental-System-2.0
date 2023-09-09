@@ -9,7 +9,6 @@ package za.ac.cput.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-
 import java.util.Date;
 import java.util.Objects;
 
@@ -17,7 +16,9 @@ import java.util.Objects;
 public class Booking {
     @Id
     private String bookingNumber;
-    private Date bookingDate, startDate, endDate;
+    private Date bookingDate;
+    private Date startDate;
+    private Date endDate;
     private boolean collection;
     private double totalAmount;
 
