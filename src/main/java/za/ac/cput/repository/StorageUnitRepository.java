@@ -16,7 +16,7 @@ import java.util.Set;
 public interface StorageUnitRepository extends JpaRepository<StorageUnit, String> {
 
 
-    public Set<StorageUnit> getAll();
+   // public Set<StorageUnit> getAll();
 }
 
 

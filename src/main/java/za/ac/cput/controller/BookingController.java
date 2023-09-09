@@ -37,5 +37,10 @@ public class BookingController {
         return bookingService.getAll();
     }
 
+    @GetMapping("/collections")
+    public List<Booking> getCollections() {
+        return bookingService.getBookingsWithCollections();
+    }
+
 
 }

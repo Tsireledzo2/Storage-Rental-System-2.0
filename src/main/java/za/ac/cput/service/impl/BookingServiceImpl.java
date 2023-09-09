@@ -54,4 +54,8 @@ public class BookingServiceImpl implements BookingService {
     public List<Booking> getAll() {
         return repository.findAll();
     }
+
+    public List<Booking> getBookingsWithCollections() {
+        return this.repository.getBookingsWithCollection();
+    }
 }
