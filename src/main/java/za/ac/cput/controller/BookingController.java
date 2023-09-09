@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Booking;
 import za.ac.cput.service.impl.BookingServiceImpl;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/booking")
-@CrossOrigin(origins = "http://localhost:8080")
+//@CrossOrigin(origins = "http://localhost:8080")
 public class BookingController {
 
     @Autowired
@@ -31,7 +33,7 @@ public class BookingController {
     }
 
     @GetMapping("/getAll")
-    public Iterable<Booking> getAll() {
+    public List<Booking> getAll() {
         return bookingService.getAll();
     }
 

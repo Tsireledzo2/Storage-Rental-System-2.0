@@ -12,9 +12,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Booking;
 
-import java.util.Set;
+import java.awt.*;
+import java.util.List;
 @Repository
 public interface IBookingRepository extends JpaRepository<Booking, String> {
 
-    Set<Booking> getAll();
+  List<Booking> getAll();
 }
