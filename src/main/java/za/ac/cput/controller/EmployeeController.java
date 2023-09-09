@@ -6,6 +6,8 @@ Date : 22 August 2023
  */
 package za.ac.cput.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Employee;
 import za.ac.cput.service.impl.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,7 @@ public class EmployeeController {
 
     @Autowired
     EmployeeService employeeService;
-    @PostMapping("/createVehicle")
+    @PostMapping("/createEmployee")
     public Employee create(@RequestBody Employee employee){
         return employeeService.create(employee);
     }
@@ -42,5 +44,15 @@ public class EmployeeController {
     @GetMapping("/getAllEmployee")
     public List<Employee> getAll(){
         return employeeService.getAll();
+    }
+
+    @GetMapping("/login/{employeeEmail}/{password}")
+    public Employee findByEmail(@PathVariable String employeeEmail,@PathVariable String password){
+        return employeeService.findByEmail(employeeEmail,password);
+    }
+
+    @GetMapping("/DriverAdminLogin/{employeeNumber}")
+    public Object findAdminOrDriver(@PathVariable String employeeNumber) {
+        return  employeeService.findEmployeeByEmployeeNumber(employeeNumber);
     }
 }

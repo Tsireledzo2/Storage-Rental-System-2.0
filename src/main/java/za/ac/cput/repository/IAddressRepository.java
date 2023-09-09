@@ -14,5 +14,5 @@ import java.util.Set;
 @Repository
 public interface IAddressRepository extends JpaRepository<Address, String> {
 
-    public List<Address> getAll();
+    //public List<Address> getAll();
 }
