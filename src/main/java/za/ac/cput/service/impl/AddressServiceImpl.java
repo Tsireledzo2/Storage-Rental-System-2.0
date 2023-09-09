@@ -4,57 +4,54 @@ Address Service Impl
 Ndumiso Nkululeko Ngcobo
 220094861
  */
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Address;
-import za.ac.cput.repository.impl.AddressImpl;
+import za.ac.cput.repository.IAddressRepository;
 import za.ac.cput.service.IAddressService;
 
+import java.util.List;
 import java.util.Set;
-
+@Service
 public class AddressServiceImpl implements IAddressService {
 
-    private static AddressServiceImpl addressService  = null;
-    private static AddressImpl addressRepository = null;
+    private IAddressRepository addressRepository;
 
-    private AddressServiceImpl (){
+    @Autowired
+    private AddressServiceImpl (IAddressRepository addressRepository) {
 
-        addressRepository = AddressImpl.getAddressRepository();
-    }
-
-    public static AddressServiceImpl getAddressService(){
-        if(addressService ==null){
-           addressService = new AddressServiceImpl();
-        }
-        return addressService;
+        this.addressRepository = addressRepository;
     }
 
     @Override
-    public Set<Address> getAll() {
-        return addressRepository.getAll();
+    public List<Address> getAll() {
+
+        return addressRepository.findAll();
     }
 
     @Override
     public Address create(Address address) {
-        Address createAddress = addressRepository.create(address);
-        return createAddress;
-
+        return addressRepository.save(address);
     }
 
     @Override
     public Address read(String s) {
-        Address readAddress = addressRepository.read(s);
-        return readAddress;
-
+        return addressRepository.findById(s).orElse(null);
     }
 
     @Override
     public Address update(Address address) {
-        Address updateAddress = addressRepository.update(address);
-        return updateAddress;
+        if(this.addressRepository.existsById(address.getZipCode()))
+            return this.addressRepository.save(address);
+        return null;
     }
 
     @Override
     public boolean delete(String s) {
-        boolean success = addressService.delete(s);
-        return success;
+        if(this.addressRepository.existsById(s)) {
+            this.addressRepository.deleteById(s);
+            return true;
+        }
+        return false;
     }
 }
