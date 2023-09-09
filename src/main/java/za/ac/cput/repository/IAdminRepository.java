@@ -12,5 +12,6 @@ import za.ac.cput.domain.Admin;
 import java.util.List;
 import java.util.Set;
 public interface IAdminRepository extends JpaRepository<Admin,String> {
-    public List<Admin> getAll();
+    //public List<Admin> getAll();
+    Admin findByEmployee_EmployeeNumber(String employeeNumber);
 }

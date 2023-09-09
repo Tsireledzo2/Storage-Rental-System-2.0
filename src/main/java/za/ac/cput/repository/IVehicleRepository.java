@@ -13,5 +13,5 @@ import za.ac.cput.domain.Vehicle;
 import java.util.List;
 @Repository
 public interface IVehicleRepository extends JpaRepository<Vehicle,String> {
-    public List<Vehicle> getAll();
+   // public List<Vehicle> getAll();
 }

@@ -13,15 +13,16 @@ import za.ac.cput.service.impl.AdminServiceImpl;
 import java.util.List;
 
 @RestController
+@RequestMapping("/admin")
 public class AdminController {
     @Autowired
     AdminServiceImpl adminService;
-    @PostMapping("/createVehicle")
+    @PostMapping("/createAdmin")
     public Admin create(@RequestBody Admin admin) {
         return adminService.create(admin);
     }
 
-    @GetMapping("/getEmployee/{adminID}")
+    @GetMapping("/getAdmin/{adminID}")
     public Admin read(@PathVariable String adminID) {
         return adminService.read(adminID);
     }
@@ -36,7 +37,7 @@ public class AdminController {
         return adminService.delete(adminID);
     }
 
-    @GetMapping("/getAllVehicles")
+    @GetMapping("/getAllAdmins")
     public List<Admin> getAll() {
         return adminService.getAll();
     }
