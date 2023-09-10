@@ -52,4 +52,7 @@ public class EmailService {
 
         javaMailSender.send(message);
     }
+
+    public void sendEmail(String recipientEmail, String invoiceInformation, String emailBody) {
+    }
 }
