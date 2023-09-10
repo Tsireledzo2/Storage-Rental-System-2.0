@@ -23,7 +23,7 @@ public class BookingFactory {
         String bookingNum = Helper.generateId();
 
         Booking booking = new Booking.Builder()
-                .setBookingNumber(bookingNum)
+                .setBookingNumber(Long.valueOf(bookingNum)) //Went from String to Long
                 .setBookingDate(bookingDate)
                 .setStartDate(startDate)
                 .setEndDate(endDate)
