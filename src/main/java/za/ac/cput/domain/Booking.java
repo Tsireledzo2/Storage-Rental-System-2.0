@@ -7,15 +7,20 @@ package za.ac.cput.domain;
  * Date: 07 April 2023
  */
 
+
+import jakarta.persistence.*;
+import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
-public class Booking {
+
+public class Booking implements Serializable {
     @Id
-    private String bookingNumber;
+    @GeneratedValue
+    private Long bookingNumber; //Went from String to Long
     private Date bookingDate;
     private Date startDate;
     private Date endDate;
@@ -23,6 +28,16 @@ public class Booking {
     private double totalAmount;
 
     public Booking() {
+    }
+
+
+    private Booking(Builder builder) {
+        this.bookingNumber = builder.bookingNumber;
+        this.bookingDate = builder.bookingDate;
+        this.startDate = builder.startDate;
+        this.endDate = builder.endDate;
+        this.collection = builder.collection;
+        this.totalAmount = builder.totalAmount;
     }
 
     public Booking(Date bookingDate, Date startDate, Date endDate, boolean collection, double totalAmount) {
@@ -51,17 +66,8 @@ public class Booking {
         return Objects.hash(bookingNumber, bookingDate, startDate, endDate, collection, totalAmount);
     }
 
-    private Booking(Builder builder) {
-        this.bookingNumber = builder.bookingNumber;
-        this.bookingDate = builder.bookingDate;
-        this.startDate = builder.startDate;
-        this.endDate = builder.endDate;
-        this.collection = builder.collection;
-        this.totalAmount = builder.totalAmount;
 
-    }
-
-    public String getBookingNumber() {
+    public Long getBookingNumber() {
         return bookingNumber;
     }
 
@@ -99,13 +105,13 @@ public class Booking {
 
 
     public static class Builder {
-
-        private String bookingNumber;
+        private Long bookingNumber;
         private Date bookingDate, startDate, endDate;
         private boolean collection;
         private double totalAmount;
 
-        public Builder setBookingNumber(String bookingNumber) {
+        public Builder setBookingNumber(Long bookingNumber) {
+
             this.bookingNumber = bookingNumber;
             return this;
         }
