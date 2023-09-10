@@ -23,11 +23,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
         this.customerRepository = customerRepository;
     }
-    @Override
-    public List<Customer> getAll() {
-        return customerRepository.findAll();
 
-    }
 
     @Override
     public Customer create(Customer customer) {
@@ -36,23 +32,22 @@ public class CustomerServiceImpl implements ICustomerService {
     }
 
     @Override
-    public Customer read(String customerId) {
-     return customerRepository.findById(customerId).orElse(null);
+    public Customer read(String email) {
+     return customerRepository.findById(email).orElse(null);
     }
 
     @Override
     public Customer update(Customer customer) {
-        if(this.customerRepository.existsById(customer.getCustomerId()))
-            return this.customerRepository.save(customer);
         return null;
     }
 
     @Override
-    public boolean delete(String customerId) {
-        if(this.customerRepository.existsById(customerId)) {
-            this.customerRepository.deleteById(customerId);
-            return true;
-        }
+    public boolean delete(String s) {
         return false;
+    }
+
+    @Override
+    public List<Customer> getAll() {
+        return null;
     }
 }
