@@ -7,13 +7,16 @@ package za.ac.cput.domain;
  * Date: 07 April 2023
  */
 
-import jakarta.persistence.*;
 
+import jakarta.persistence.*;
 import java.io.Serializable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
+
 public class Booking implements Serializable {
     @Id
     @GeneratedValue
@@ -26,6 +29,7 @@ public class Booking implements Serializable {
 
     public Booking() {
     }
+
 
     private Booking(Builder builder) {
         this.bookingNumber = builder.bookingNumber;
@@ -61,6 +65,7 @@ public class Booking implements Serializable {
     public int hashCode() {
         return Objects.hash(bookingNumber, bookingDate, startDate, endDate, collection, totalAmount);
     }
+
 
     public Long getBookingNumber() {
         return bookingNumber;
@@ -100,13 +105,13 @@ public class Booking implements Serializable {
 
 
     public static class Builder {
-
         private Long bookingNumber;
         private Date bookingDate, startDate, endDate;
         private boolean collection;
         private double totalAmount;
 
         public Builder setBookingNumber(Long bookingNumber) {
+
             this.bookingNumber = bookingNumber;
             return this;
         }

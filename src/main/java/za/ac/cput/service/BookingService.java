@@ -10,12 +10,14 @@ import za.ac.cput.domain.Booking;
 
 import java.util.List;
 
+
 public interface BookingService extends IService <Booking, Long> {
     Booking create(Booking booking);
 
 //    Booking update(Booking booking);
 
     boolean delete(Long id); //Went from String to Long
+
 
     List<Booking> getAll();
 }

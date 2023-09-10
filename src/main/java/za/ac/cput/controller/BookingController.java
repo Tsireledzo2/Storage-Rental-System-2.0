@@ -27,6 +27,7 @@ public class BookingController {
         return bookingService.create(booking);
     }
 
+
 //    @PutMapping("/update")
 //    public Booking update(@RequestBody Booking booking) {
 //        return bookingService.update(booking);
@@ -34,6 +35,7 @@ public class BookingController {
 
     @DeleteMapping("/delete/{id}")
     public boolean delete(@PathVariable Long id) {
+
         return bookingService.delete(id);
     }
 
@@ -42,10 +44,12 @@ public class BookingController {
         return bookingService.getAll();
     }
 
+
 //    @GetMapping("/collections")
 //    public List<Booking> getCollections() {
 //        return bookingService.getBookingsWithCollections();
 //    }
+
 
 
 }

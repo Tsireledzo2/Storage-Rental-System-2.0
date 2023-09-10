@@ -20,5 +20,4 @@ public interface IBookingRepository extends JpaRepository<Booking, Long> {
 //Went from String to Long just uncomment for your code to run if you want to change my code please tell me so i know what to change
 //    @Query("SELECT b FROM Booking b WHERE b.collection = true")
 //    public List<Booking> getBookingsWithCollection();
-
 }

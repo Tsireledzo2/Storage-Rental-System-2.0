@@ -13,7 +13,6 @@ import za.ac.cput.domain.Booking;
 import za.ac.cput.repository.IBookingRepository;
 import za.ac.cput.service.BookingService;
 
-import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 
 
@@ -38,6 +37,7 @@ public class BookingServiceImpl implements BookingService {
         return this.repository.findById(id).orElse(null);
     } //Went from String to Long
 
+
     @Override
     public Booking update(Booking booking) {
         return this.repository.save(booking);
@@ -56,4 +56,9 @@ public class BookingServiceImpl implements BookingService {
     public List<Booking> getAll() {
         return repository.findAll();
     }
+
+//    public List<Booking> getBookingsWithCollections() {
+//        return this.repository.getBookingsWithCollection();
+//    }
+
 }
