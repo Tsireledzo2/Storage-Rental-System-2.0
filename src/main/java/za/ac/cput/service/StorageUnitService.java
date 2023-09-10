@@ -2,6 +2,7 @@ package za.ac.cput.service;
 
 import za.ac.cput.domain.StorageUnit;
 
+import java.util.List;
 import java.util.Set;
 
 public interface StorageUnitService {
@@ -11,5 +12,5 @@ public interface StorageUnitService {
 
     boolean delete (String UnitId);
 
-    public Set<StorageUnit>getAll();
+    public List<StorageUnit> getAll();
 }
