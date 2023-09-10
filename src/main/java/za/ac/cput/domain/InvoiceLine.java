@@ -6,14 +6,13 @@
  */
 package za.ac.cput.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name = "invoice_line")
 public class InvoiceLine {
     @Id
     private String invoiceLineId;

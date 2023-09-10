@@ -44,4 +44,5 @@ public class InvoiceService implements IInvoice {
     public List<Invoice> getAll() {
         return this.invoice.findAll();
     }
+
 }
