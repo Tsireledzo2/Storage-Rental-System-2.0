@@ -1,6 +1,8 @@
 package za.ac.cput.service.impl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Customer;
-import za.ac.cput.repository.impl.CustomerImpl;
+import za.ac.cput.repository.ICustomerRepository;
 import za.ac.cput.service.ICustomerService;
 /*
 Ndumiso Nkululeko Ngcobo
@@ -9,44 +11,48 @@ Address Service class
 11/06/2023
 
  */
-import java.util.Set;
+import java.util.List;
 
+@Service
 public class CustomerServiceImpl implements ICustomerService {
-    private static CustomerServiceImpl customerService= null;
-    private static CustomerImpl customerRepository = null;
 
-    private CustomerServiceImpl(){
+    private ICustomerRepository customerRepository;
 
-        customerRepository = CustomerImpl.getCustomerRepository();
+    @Autowired
+    private CustomerServiceImpl(ICustomerRepository customerRepository){
+
+        this.customerRepository = customerRepository;
     }
     @Override
-    public Set<Customer> getAll() {
-        return customerRepository.getAll();
+    public List<Customer> getAll() {
+        return customerRepository.findAll();
 
     }
 
     @Override
     public Customer create(Customer customer) {
-        Customer createAddress = customerRepository.create(customer);
-        return createAddress;
+        return customerRepository.save(customer);
 
     }
 
     @Override
-    public Customer read(String s) {
-     Customer readCustomer = customerRepository.read(s);
-     return readCustomer;
+    public Customer read(String customerId) {
+     return customerRepository.findById(customerId).orElse(null);
     }
 
     @Override
     public Customer update(Customer customer) {
-        Customer updateCustomer = customerRepository.update(customer);
-        return updateCustomer;
+        if(this.customerRepository.existsById(customer.getCustomerId()))
+            return this.customerRepository.save(customer);
+        return null;
     }
 
     @Override
-    public boolean delete(String s) {
-        boolean success = customerService.delete(s);
-        return success;
+    public boolean delete(String customerId) {
+        if(this.customerRepository.existsById(customerId)) {
+            this.customerRepository.deleteById(customerId);
+            return true;
+        }
+        return false;
     }
 }

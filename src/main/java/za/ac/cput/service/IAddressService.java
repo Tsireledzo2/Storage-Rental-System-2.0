@@ -8,8 +8,9 @@ Address Service interface
  */
 import za.ac.cput.domain.Address;
 
+import java.util.List;
 import java.util.Set;
     public interface IAddressService extends IService<Address,String> {
-        public Set<Address>getAll();
+        public List<Address> getAll();
     }
 

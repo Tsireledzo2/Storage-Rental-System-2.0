@@ -12,5 +12,5 @@ import za.ac.cput.domain.VehicleType;
 import java.util.Set;
 
 public interface IVehicleTypeRepository extends IRepository<VehicleType,String>{
-    public Set<VehicleType> getAll();
+    //public Set<VehicleType> getAll();
 }

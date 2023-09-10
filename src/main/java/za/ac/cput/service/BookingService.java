@@ -8,12 +8,12 @@ package za.ac.cput.service;
 
 import za.ac.cput.domain.Booking;
 
-import java.util.Set;
+import java.util.List;
 
-public interface BookingService {
+public interface BookingService extends IService <Booking, String> {
     Booking create(Booking booking);
 
     boolean delete(String id);
 
-    Set<Booking> getAll();
+    List<Booking> getAll();
 }
