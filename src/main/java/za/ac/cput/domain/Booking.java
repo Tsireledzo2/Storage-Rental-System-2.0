@@ -7,28 +7,33 @@ package za.ac.cput.domain;
  * Date: 07 April 2023
  */
 
-
 import jakarta.persistence.*;
-import java.io.Serializable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+
 import java.util.Date;
 import java.util.Objects;
 
 @Entity
-
-public class Booking implements Serializable {
+public class Booking {
     @Id
     @GeneratedValue
-    private Long bookingNumber; //Went from String to Long
+    private Long bookingNumber;
     private Date bookingDate;
     private Date startDate;
     private Date endDate;
     private boolean collection;
     private double totalAmount;
 
+//    @OneToOne
+//    @JoinColumn(name = "email")
+//    private Customer customer;
+//
+//    @OneToOne
+//    @JoinColumn(name = "unitId")
+//    private StorageUnit storageUnit;
+
     public Booking() {
     }
+
 
 
     private Booking(Builder builder) {
@@ -38,34 +43,10 @@ public class Booking implements Serializable {
         this.endDate = builder.endDate;
         this.collection = builder.collection;
         this.totalAmount = builder.totalAmount;
-    }
+//        this.customer = builder.customer;
+//        this.storageUnit = builder.storageUnit;
 
-    public Booking(Date bookingDate, Date startDate, Date endDate, boolean collection, double totalAmount) {
-        this.bookingDate = bookingDate;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.collection = collection;
-        this.totalAmount = totalAmount;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Booking booking = (Booking) o;
-        return collection == booking.collection
-                && Double.compare(booking.totalAmount, totalAmount) == 0
-                && Objects.equals(bookingNumber, booking.bookingNumber)
-                && Objects.equals(bookingDate, booking.bookingDate)
-                && Objects.equals(startDate, booking.startDate)
-                && Objects.equals(endDate, booking.endDate);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(bookingNumber, bookingDate, startDate, endDate, collection, totalAmount);
-    }
-
 
     public Long getBookingNumber() {
         return bookingNumber;
@@ -91,6 +72,14 @@ public class Booking implements Serializable {
         return totalAmount;
     }
 
+//    public Customer getCustomer() {
+//        return customer;
+//    }
+//
+//    public StorageUnit getStorageUnit() {
+//        return storageUnit;
+//    }
+
     @Override
     public String toString() {
         return "Booking{" +
@@ -105,13 +94,15 @@ public class Booking implements Serializable {
 
 
     public static class Builder {
+
         private Long bookingNumber;
         private Date bookingDate, startDate, endDate;
         private boolean collection;
         private double totalAmount;
+        private Customer customer;
+        private StorageUnit storageUnit;
 
         public Builder setBookingNumber(Long bookingNumber) {
-
             this.bookingNumber = bookingNumber;
             return this;
         }
@@ -141,6 +132,16 @@ public class Booking implements Serializable {
             return this;
         }
 
+        public Builder setCustomer(Customer customer) {
+            this.customer = customer;
+            return this;
+        }
+
+        public Builder setStorageUnit(StorageUnit storageUnit) {
+            this.storageUnit = storageUnit;
+            return this;
+        }
+
         public Builder copy(Booking booking) {
             this.bookingNumber = booking.bookingNumber;
             this.bookingDate = booking.bookingDate;
@@ -148,6 +149,8 @@ public class Booking implements Serializable {
             this.endDate = booking.endDate;
             this.collection = booking.collection;
             this.totalAmount = booking.totalAmount;
+//            this.customer = booking.customer;
+//            this.storageUnit = booking.storageUnit;
             return this;
         }
 
@@ -156,5 +159,3 @@ public class Booking implements Serializable {
         }
     }
 }
-
-

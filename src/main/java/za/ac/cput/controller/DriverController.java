@@ -34,7 +34,7 @@ public class DriverController {
         return driverService.delete(numberPlate);
     }
 
-    @GetMapping("/getAllVehicles")
+    @GetMapping("/getAllDrivers")
     public List<Driver> getAll(){
         return driverService.getAll();
     }
