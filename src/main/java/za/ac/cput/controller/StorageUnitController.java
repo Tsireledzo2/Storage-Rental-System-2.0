@@ -39,8 +39,11 @@ public class StorageUnitController {
     @GetMapping("/getAll")
     public List<StorageUnit> getAll() {
         return storageUnitService.getAll();
+    }
 
-
+    @GetMapping("/getStoragesBySize/{description}")
+    public List<StorageUnit> getStorageUnitBySize(@PathVariable String description) {
+        return storageUnitService.getStorageUnitsByDescription(description);
     }
 
 }

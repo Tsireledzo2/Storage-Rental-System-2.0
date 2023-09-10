@@ -4,20 +4,22 @@ Ndumiso Nkululeko Ngcobo
 220094861
 This is an Address Class
  */
+import za.ac.cput.domain.Address;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.util.Helper;
 
 public class CustomerFactory {
 
     public static Customer createCustomer(String firstName,
-                                          String lastName,
+                                          String surname,
                                           String email,
-                                          String phone){
+                                          String cellphone
+                                          /*Address address*/){
 
 
         if (Helper.isNullorEmpty(firstName) ||
-                Helper.isNullorEmpty(lastName) ||
-                Helper.isNullorEmpty(phone)){
+                Helper.isNullorEmpty(surname) ||
+                Helper.isNullorEmpty(cellphone)){
             return null;
         }
         String customerID = Helper.generateId();
@@ -25,11 +27,12 @@ public class CustomerFactory {
             return null;
         }
         Customer customer = new Customer.Builder()
-                .setCustomerId(customerID)
+
                 .setFirstName(firstName)
-                .setLastName(lastName)
+                .setSurname(surname)
                 .setEmail(email)
-                .setPhone(phone)
+                .setCellphone(cellphone)
+                //.setAddress(address)
                 .build();
         return customer;
     }

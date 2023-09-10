@@ -9,11 +9,12 @@ import za.ac.cput.domain.StorageUnit;
 import za.ac.cput.util.Helper;
 
 public class StorageUnitFactory {
-    public static StorageUnit buildStorageUnit(String id, String description ,int height,int length, int width, int unitSize, double price){
+    public static StorageUnit buildStorageUnit(String id, String description,String status ,int height,int length, int width, int unitSize, double price){
 
         StorageUnit storageUnit = new StorageUnit.Builder()
                 .setUnitId(id)
                 .setUnitSizeDescription(description)
+                .setStatus(status)
                 .setStorageUnitType(StorageUnitTypeFactory.buildStorageUnitType(height,length,width,unitSize,price))
                 .build();
 

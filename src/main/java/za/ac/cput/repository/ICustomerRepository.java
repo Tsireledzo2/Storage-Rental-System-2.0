@@ -15,6 +15,6 @@ import java.util.Set;
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer, String> {
 
-    public List<Customer> getAll();
+
 
 }

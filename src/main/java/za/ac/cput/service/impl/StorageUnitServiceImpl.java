@@ -54,4 +54,8 @@ public class StorageUnitServiceImpl implements StorageUnitService {
     public List <StorageUnit> getAll() {
     return this.repository.findAll();
     }
+
+    public List<StorageUnit> getStorageUnitsByDescription(String description) {
+        return repository.findByDescription(description);
+    }
 }
