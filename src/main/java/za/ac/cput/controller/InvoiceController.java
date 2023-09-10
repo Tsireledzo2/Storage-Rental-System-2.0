@@ -17,7 +17,7 @@ public class InvoiceController {
 
     @PostMapping("create")
     public Invoice create(@RequestBody Invoice invoice){
-        Invoice created = InvoiceFactory.builddInvoice("10", 500, "chris", new Date(2025,3,8));
+//        Invoice created = InvoiceFactory.builddInvoice("10", 300, "chris", new Date(2025,3,8));
         return invoiceService.create(invoice);
     }
 
