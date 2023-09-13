@@ -42,7 +42,8 @@ public class Driver {
     @Override
     public String toString() {
         return "Driver{" +
-                "job_description='" + job_description + '\'' +
+                "licence_number='" + licence_number + '\'' +
+                ", job_description='" + job_description + '\'' +
                 ", employee=" + employee +
                 '}';
     }
