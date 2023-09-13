@@ -19,7 +19,7 @@ public class DriverController {
         return driverService.create(driver);
     }
 
-    @GetMapping("/getDriver/{licenceNumber}")
+    @GetMapping("/readDriver/{licenceNumber}")
     public Driver read(@PathVariable String licenceNumber){
         return driverService.read(licenceNumber);
     }
@@ -29,9 +29,9 @@ public class DriverController {
         return driverService.update(driver);
     }
 
-    @DeleteMapping("/deleteDriver/{numberPlate}")
-    public boolean delete(@PathVariable String numberPlate){
-        return driverService.delete(numberPlate);
+    @DeleteMapping("/deleteDriver/{licenceNumber}")
+    public boolean delete(@PathVariable String licenceNumber){
+        return driverService.delete(licenceNumber);
     }
 
     @GetMapping("/getAllDrivers")
