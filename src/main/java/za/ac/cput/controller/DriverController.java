@@ -7,7 +7,7 @@ import za.ac.cput.service.impl.DriverServiceImpl;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200/")
+//@CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 @RequestMapping("/driver")
 public class DriverController {
