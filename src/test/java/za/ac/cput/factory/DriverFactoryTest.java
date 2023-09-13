@@ -15,6 +15,6 @@ class DriverFactoryTest {
     void createVehicleFactory(){
         Driver driver = DriverFactory.buildDriver("Tsireledzo","Makhado","tsire@gmail.com","123456");
         System.out.println("Driver: " +driver);
-        assertNotNull(driver.getLicenceNumber());
+        assertNotNull(driver.getLicence_number());
     }
 }

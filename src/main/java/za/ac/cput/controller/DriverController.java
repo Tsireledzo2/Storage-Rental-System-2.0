@@ -9,31 +9,32 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200/")
 @RestController
+@RequestMapping("/driver")
 public class DriverController {
 
     @Autowired
     DriverServiceImpl driverService;
-    @PostMapping("/createVehicle")
+    @PostMapping("/createDriver")
     public Driver create(@RequestBody Driver driver){
         return driverService.create(driver);
     }
 
-    @GetMapping("/getVehicle/{licenceNumber}")
+    @GetMapping("/getDriver/{licenceNumber}")
     public Driver read(@PathVariable String licenceNumber){
         return driverService.read(licenceNumber);
     }
 
-    @PostMapping("/updateVehicle")
+    @PostMapping("/updateDriver")
     public Driver update(@RequestBody Driver driver){
         return driverService.update(driver);
     }
 
-    @DeleteMapping("/deleteVehicle/{numberPlate}")
+    @DeleteMapping("/deleteDriver/{numberPlate}")
     public boolean delete(@PathVariable String numberPlate){
         return driverService.delete(numberPlate);
     }
 
-    @GetMapping("/getAllVehicles")
+    @GetMapping("/getAllDrivers")
     public List<Driver> getAll(){
         return driverService.getAll();
     }
