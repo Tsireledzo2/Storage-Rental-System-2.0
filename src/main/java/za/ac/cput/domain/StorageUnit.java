@@ -21,7 +21,7 @@ public class StorageUnit implements Serializable {
     @Id
     private String unitId;
     private String unitSizeDescription;
-    private String status;
+//    private String status;
     @Embedded
     private StorageUnitType storageUnitType;
 
@@ -33,7 +33,7 @@ public class StorageUnit implements Serializable {
         this.unitId = builder.unitId;
         this.unitSizeDescription = builder.unitSizeDescription;
         this.storageUnitType = builder.storageUnitType;
-        this.status = builder.status;
+//        this.status = builder.status;
     }
     public String getUnitId() {
         return unitId;
@@ -46,9 +46,9 @@ public class StorageUnit implements Serializable {
         return storageUnitType;
     }
 
-    public String getStatus() {
-        return status;
-    }
+//    public String getStatus() {
+//        return status;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -76,7 +76,7 @@ public class StorageUnit implements Serializable {
         private String unitId;
         private String unitSizeDescription;
         private StorageUnitType storageUnitType;
-        private String status;
+//        private String status;
 
         public Builder setUnitId(String unitId) {
             this.unitId = unitId;
@@ -88,16 +88,16 @@ public class StorageUnit implements Serializable {
             return this;
         }
 
-        public Builder setStatus(String status) {
-            this.status = status;
-            return this;
-        }
+//        public Builder setStatus(String status) {
+//            this.status = status;
+//            return this;
+//        }
 
         public Builder copy(StorageUnit storageUnit) {
             this.unitId = storageUnit.unitId;
             this.unitSizeDescription = storageUnit.unitSizeDescription;
             this.storageUnitType = storageUnit.storageUnitType;
-            this.status = storageUnit.status;
+//            this.status = storageUnit.status;
             return this;
 
         }
