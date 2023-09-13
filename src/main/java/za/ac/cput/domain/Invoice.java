@@ -22,10 +22,6 @@ public class Invoice {
     private String customerName;
     private Date invoiceDate;
 
-    @OneToOne
-    @JoinColumn(name = "CustomerEmail")
-    private Customer customer;
-
     @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
     private List<InvoiceLine> invoiceLines;
 
@@ -37,7 +33,6 @@ public class Invoice {
         this.customerName = builder.customerName;
         this.totalAmount = builder.totalAmount;
         this.invoiceDate = builder.invoiceDate;
-        this.customer = builder.customer;
     }
 
     public String getInvoiceNumber() {
@@ -54,10 +49,6 @@ public class Invoice {
 
     public Date getInvoiceDate() {
         return invoiceDate;
-    }
-
-    public Customer getCustomer() {
-        return customer;
     }
 
     @Override
@@ -88,7 +79,6 @@ public class Invoice {
         private double totalAmount;
         private String customerName;
         private Date invoiceDate;
-        private Customer customer;
 
         public Builder setInvoiceNumber(String invoiceNumber) {
             this.invoiceNumber = invoiceNumber;
@@ -110,17 +100,11 @@ public class Invoice {
             return this;
         }
 
-        public Builder setCustomer(Customer customer) {
-            this.customer = customer;
-            return this;
-        }
-
         public Builder Copy(Invoice invoice){
             this.invoiceNumber = invoice.invoiceNumber;
             this.customerName = invoice.customerName;
             this.totalAmount = invoice.totalAmount;
             this.invoiceDate = invoice.invoiceDate;
-            this.customer = invoice.customer;
             return this;
         }
 
