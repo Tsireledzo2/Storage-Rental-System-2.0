@@ -1,16 +1,16 @@
 package za.ac.cput.factory;
-
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Admin;
+import za.ac.cput.domain.Employee;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AdminFactoryTest {
     @Test
-    void createAdminFactory(){
-        Admin admin = AdminFactory.createAdmin("Lithemba","Nkqayi","lil@gmail.com","534");
-        System.out.println("Admin:" +admin);
-        assertNotNull(admin.getFirstName());
+    void createAdmin(){
+        Employee employee = EmployeeFactory.buildEmployee("Lithemba","Nkqayi","lithe@gmail.com","Nkqa$15");
+        Admin admin = AdminFactory.createAdmin("123","Admin",employee);
+        System.out.println("Admin" +admin);
+        assertNotNull(admin.getAdminID());
     }
-
 }
