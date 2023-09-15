@@ -79,6 +79,7 @@ public class Vehicle {
                 ", vehicleColor='" + vehicleColor + '\'' +
                 ", year='" + year + '\'' +
                 ", vehicleName='" + vehicleName + '\'' +
+                ", vehicleType=" + vehicleType +
                 '}';
     }
 
