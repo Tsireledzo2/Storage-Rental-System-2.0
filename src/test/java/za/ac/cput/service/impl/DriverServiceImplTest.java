@@ -27,7 +27,7 @@ class DriverServiceImplTest {
     public Employee employee = EmployeeFactory.buildEmployee("Makhado","Tsireledzo","2211516273@mycput.ac.za","4646644");
     public Driver driver = DriverFactory.buildDriver("1234567","Driver",employee);
     @Test
-    void create() {
+    void a_create() {
         // Act
         Employee employee1 = employeeService.create(employee);
         Driver driver1 = driverService.create(driver);
@@ -39,7 +39,7 @@ class DriverServiceImplTest {
     }
 
     @Test
-    void read() {
+    void b_read() {
         // Act
         Driver driver1 = driverService.read(driver.getLicence_number());
 
@@ -49,12 +49,12 @@ class DriverServiceImplTest {
     }
 
     @Test
-    void update() {
+    void c_update() {
         //we don't update the information
     }
 
     @Test
-    void delete() {
+    void e_delete() {
         driverService.delete(driver.getLicence_number());
 
         List<Driver> drivers;
@@ -65,7 +65,7 @@ class DriverServiceImplTest {
     }
 
     @Test
-    void getAll() {
+    void d_getAll() {
         List<Driver> drivers;
         drivers = driverService.getAll();
 
