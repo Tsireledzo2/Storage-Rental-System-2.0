@@ -14,6 +14,7 @@ public class StorageUnitFactory {
         StorageUnit storageUnit = new StorageUnit.Builder()
                 .setUnitId(id)
                 .setUnitSizeDescription(description)
+//                .setStatus(status)
                 .setStorageUnitType(StorageUnitTypeFactory.buildStorageUnitType(height,length,width,unitSize,price))
                 .build();
 

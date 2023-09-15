@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Booking;
 import za.ac.cput.repository.IBookingRepository;
 import za.ac.cput.service.BookingService;
+
 import java.util.List;
 
 
@@ -32,9 +33,10 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public Booking read(String id) {
+    public Booking read(Long id) {
         return this.repository.findById(id).orElse(null);
-    }
+    } //Went from String to Long
+
 
     @Override
     public Booking update(Booking booking) {
@@ -42,7 +44,7 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public boolean delete(String id) {
+    public boolean delete(Long id) {//Went from String to Long
         if(this.repository.existsById(id)) {
             this.repository.deleteById(id);
             return true;
@@ -58,4 +60,5 @@ public class BookingServiceImpl implements BookingService {
     public List<Booking> getBookingsWithCollections() {
         return this.repository.getBookingsWithCollection();
     }
+
 }

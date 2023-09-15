@@ -5,81 +5,81 @@ This is customer class
 220094861
  */
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Customer {
-   @Id
-   private String customerId;
+
+
     private String firstName;
-    private String lastName;
+    private String surname;
+    @Id
     private String email;
-    private String phone;
+    private String cellphone;
+
 
    public Customer(){
 
    }
-    private Customer(Builder builder){
-        this.customerId = builder.customerId;
+    public Customer(Builder builder){
+
         this.email = builder.email;
-        this.lastName = builder.lastName;
-        this.phone = builder.phone;
+        this.surname = builder.surname;
+        this.cellphone = builder.cellphone;
         this.firstName = builder.firstName;
+       // this.address = builder.address;
 
     }
 
-    public String getCustomerId() {
-        return customerId;
-    }
+
 
     public String getFirstName() {
         return firstName;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getSurname() {
+        return surname;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getCellphone() {
+        return cellphone;
     }
+
+//    public Address getAddress() {
+//        return address;
+//    }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "customerId='" + customerId + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
+                ", cellphone='" + cellphone + '\'' +
+                //", address=" + address +
                 '}';
     }
 
     public static class Builder{
-        private String customerId;
-        private String firstName;
-        private String lastName;
-        private String email;
-        private String phone;
 
-        public Builder setCustomerId(String customerId) {
-            this.customerId = customerId;
-            return this;
-        }
+        private String firstName;
+        private String surname;
+        private String email;
+        private String cellphone;
+      //  private Address address;
+
 
         public Builder setFirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
 
-        public Builder setLastName(String lastName) {
-            this.lastName = lastName;
+        public Builder setSurname(String surname) {
+            this.surname = surname;
             return this;
         }
 
@@ -88,16 +88,22 @@ public class Customer {
             return this;
         }
 
-        public Builder setPhone(String phone) {
-            this.phone = phone;
+        public Builder setCellphone(String cellphone) {
+            this.cellphone = cellphone;
             return this;
         }
+
+//        public Builder setAddress(Address address) {
+//            this.address = address;
+//            return this;
+//        }
+
         public Builder copy(Customer customer){
-            this.customerId = customer.customerId;
+
             this.firstName = customer.firstName;
-            this.lastName = customer.lastName;
+            this.surname = customer.surname;
             this.email = customer.email;
-            this.phone = customer.phone;
+            this.cellphone = customer.cellphone;
             return this;
         }
         public Customer build(){
