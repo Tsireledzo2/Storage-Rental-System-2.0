@@ -16,7 +16,7 @@ public class InvoiceLineController {
 
     @PostMapping("create")
     public InvoiceLine create(@RequestBody InvoiceLine invoiceLine){
-        InvoiceLine create = InvoiceLineFactory.buildInvoiceLine("10","new",10, 12.3,52.3);
+        InvoiceLine create = InvoiceLineFactory.buildInvoiceLine("10","new",10, 992.3,52.3);
         return  invoiceLineService.create(invoiceLine);
     }
 

@@ -5,9 +5,7 @@ This is customer class
 220094861
  */
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Customer {
@@ -19,6 +17,7 @@ public class Customer {
     private String email;
     private String cellphone;
 
+
    public Customer(){
 
    }
@@ -28,6 +27,7 @@ public class Customer {
         this.surname = builder.surname;
         this.cellphone = builder.cellphone;
         this.firstName = builder.firstName;
+       // this.address = builder.address;
 
     }
 
@@ -49,14 +49,18 @@ public class Customer {
         return cellphone;
     }
 
+//    public Address getAddress() {
+//        return address;
+//    }
+
     @Override
     public String toString() {
         return "Customer{" +
-
-                ", firstName='" + firstName + '\'' +
+                "firstName='" + firstName + '\'' +
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
                 ", cellphone='" + cellphone + '\'' +
+                //", address=" + address +
                 '}';
     }
 
@@ -66,6 +70,7 @@ public class Customer {
         private String surname;
         private String email;
         private String cellphone;
+      //  private Address address;
 
 
         public Builder setFirstName(String firstName) {
@@ -87,6 +92,12 @@ public class Customer {
             this.cellphone = cellphone;
             return this;
         }
+
+//        public Builder setAddress(Address address) {
+//            this.address = address;
+//            return this;
+//        }
+
         public Builder copy(Customer customer){
 
             this.firstName = customer.firstName;
