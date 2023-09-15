@@ -100,7 +100,7 @@ public class Invoice {
             return this;
         }
 
-        public Builder Copy(Invoice invoice){
+        public Builder copy(Invoice invoice){
             this.invoiceNumber = invoice.invoiceNumber;
             this.customerName = invoice.customerName;
             this.totalAmount = invoice.totalAmount;
