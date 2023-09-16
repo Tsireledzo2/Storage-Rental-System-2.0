@@ -5,11 +5,11 @@ import za.ac.cput.util.Helper;
 
 public class EmployeeFactory {
 
-    public static Employee buildEmployee(String first_name, String last_name, String email, String password){
+    public static Employee buildEmployee(String employeeNumber,String first_name, String last_name, String email, String password){
         if(Helper.isNullorEmpty(first_name)||Helper.isNullorEmpty(last_name)){
             return null;
         }
-        String employeeNumber = Helper.generateId();
+
         if (!Helper.isValidEmail(email)){
             return null;
         }
