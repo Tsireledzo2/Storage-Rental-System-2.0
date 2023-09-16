@@ -6,8 +6,6 @@ Date : 22 August 2023
  */
 package za.ac.cput.controller;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Employee;
 import za.ac.cput.service.impl.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
