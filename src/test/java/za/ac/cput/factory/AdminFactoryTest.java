@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AdminFactoryTest {
     @Test
     void createAdmin(){
-        Employee employee = EmployeeFactory.buildEmployee("Lithemba","Nkqayi","lithe@gmail.com","Nkqa$15");
+        Employee employee = EmployeeFactory.buildEmployee("E124","Lithemba","Nkqayi","lithe@gmail.com","Nkqa$15");
         Admin admin = AdminFactory.createAdmin("123","Admin",employee);
         System.out.println("Admin" +admin);
         assertNotNull(admin.getAdminID());
