@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DriverControllerTest {
 
 
-    public Employee employee = EmployeeFactory.buildEmployee("Makhado","Tsireledzo","2211516273@mycput.ac.za","4646644");
+    public Employee employee = EmployeeFactory.buildEmployee("A2345","Makhado","Tsireledzo","2211516273@mycput.ac.za","4646644");
     public Driver driver = DriverFactory.buildDriver("1234567","Driver",employee);
 
     @Autowired

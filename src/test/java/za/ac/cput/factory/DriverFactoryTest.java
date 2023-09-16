@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DriverFactoryTest {
     @Test
     void createVehicleFactory(){
-        Employee employee = EmployeeFactory.buildEmployee("Tsireledzo","Makhado","tsire@gamil.com","1234");
+        Employee employee = EmployeeFactory.buildEmployee("E234","Tsireledzo","Makhado","tsire@gamil.com","1234");
         Driver driver = DriverFactory.buildDriver("987654321","Driver",employee);
         System.out.println("Driver: " +driver);
         assertNotNull(driver.getLicence_number());
