@@ -45,10 +45,10 @@ public class BookingController {
     }
 
 
-//    @GetMapping("/collections")
-//    public List<Booking> getCollections() {
-//        return bookingService.getBookingsWithCollections();
-//    }
+    @GetMapping("/collections")
+    public List<Booking> getCollections() {
+        return bookingService.getBookingsWithCollections();
+    }
 
 
 
