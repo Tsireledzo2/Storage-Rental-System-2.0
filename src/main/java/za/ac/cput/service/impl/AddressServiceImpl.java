@@ -30,6 +30,11 @@ public class AddressServiceImpl implements IAddressService {
     }
 
     @Override
+    public Address getAddressByBookingNumber(Long bookingNumber) {
+        return addressRepository.getAddressByBookingNumber(bookingNumber);
+    }
+
+    @Override
     public Address create(Address address) {
         return addressRepository.save(address);
     }

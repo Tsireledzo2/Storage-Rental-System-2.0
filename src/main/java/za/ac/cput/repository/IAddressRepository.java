@@ -6,13 +6,14 @@ Date: 07-04-2023
 Student Number: 220094861
  */
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Address;
 
-import java.util.List;
-import java.util.Set;
 @Repository
 public interface IAddressRepository extends JpaRepository<Address, String> {
 
-    //public List<Address> getAll();
+    @Query("SELECT a FROM Address a WHERE a.booking.bookingNumber = :bookingNumber")
+    public Address getAddressByBookingNumber(@Param("bookingNumber") Long bookingNumber);
 }
