@@ -15,7 +15,7 @@ import java.util.Objects;
 @Entity
 public class Booking {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookingNumber;
     private Date bookingDate;
     private Date startDate;
