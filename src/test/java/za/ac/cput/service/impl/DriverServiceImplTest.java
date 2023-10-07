@@ -24,7 +24,7 @@ class DriverServiceImplTest {
     @Autowired
     EmployeeService employeeService;
 
-    public Employee employee = EmployeeFactory.buildEmployee("Makhado","Tsireledzo","2211516273@mycput.ac.za","4646644");
+    public Employee employee = EmployeeFactory.buildEmployee("A6557","Makhado","Tsireledzo","2211516273@mycput.ac.za","4646644");
     public Driver driver = DriverFactory.buildDriver("1234567","Driver",employee);
     @Test
     void a_create() {
