@@ -13,8 +13,8 @@ This is an Address Class
 public class Address {
     @Id
     @GeneratedValue
-    private String id;
-private String streetNumber;
+    private String addressID;
+    private String streetNumber;
     private String streetName;
     private String state;
     private String zipCode;

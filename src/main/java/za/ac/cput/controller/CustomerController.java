@@ -8,39 +8,25 @@ Customer Controller Class
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Customer;
-import za.ac.cput.factory.CustomerFactory;
-import za.ac.cput.service.ICustomerService;
+import za.ac.cput.repository.ICustomerRepository;
 
-import java.util.List;
 
 @RestController
+@RequestMapping("/customer")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CustomerController {
+    @Autowired
+    private ICustomerRepository customerRepository;
+
+
 @Autowired
-    private ICustomerService customerService;
+    public CustomerController (@RequestBody ICustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
 
-@PostMapping("/create")
-public Customer create(@RequestBody Customer customer){
-     Customer newCustomer = CustomerFactory.createCustomer(customer.getFirstName(), customer.getLastName(), customer.getPhone(), customer.getEmail());
-     return customerService.create(newCustomer);
-}
+    }
+    @PostMapping("/saveCustomer")
+    public Customer createCustomer(@RequestBody Customer customer){
+    return customerRepository.save(customer);
 
-@GetMapping("/read/{id}")
-    public Customer read(@PathVariable String id){
-    return customerService.read(id);
-}
-
-@PostMapping("/update")
-    public Customer update(@RequestBody Customer customer){
-    return customerService.update(customer);
-}
-
-@GetMapping("/getall")
-    public List<Customer> getAll(){
-    return customerService.getAll();
-}
-
-   @DeleteMapping("/delete/{id}")
-   public boolean delete(@PathVariable String id){
-    return customerService.delete(id);
-   }
+    }
 }
