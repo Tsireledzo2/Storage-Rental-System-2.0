@@ -34,7 +34,7 @@ public class EmailService {
             content.append("<tr>");
             content.append("<td>").append(invoice.getInvoiceNumber()).append("</td>");
             content.append("<td>").append(invoice.getCustomerName()).append("</td>");
-            content.append("<td>").append(invoice.getInvoiceDate()).append("</td>");
+           content.append("<td>").append(invoice.getInvoiceDate()).append("<td>");
             content.append("<td>").append(invoice.getTotalAmount()).append("</td>");
             content.append("</tr>");
         }
@@ -53,6 +53,8 @@ public class EmailService {
         javaMailSender.send(message);
     }
 
-    public void sendEmail(String recipientEmail, String invoiceInformation, String emailBody) {
+    public void sendEmail(String recipientEmail, String subject, String emailBody) throws MessagingException {
+        // Send the email with HTML content
+        sendHtmlEmail(recipientEmail, subject, emailBody);
     }
 }

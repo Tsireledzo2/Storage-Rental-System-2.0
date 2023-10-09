@@ -9,7 +9,7 @@ package za.ac.cput.domain;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -50,6 +50,12 @@ public class Invoice {
     public Date getInvoiceDate() {
         return invoiceDate;
     }
+
+    public String getFormattedInvoiceDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd"); // Define your desired date format here
+        return dateFormat.format(invoiceDate);
+    }
+
 
     @Override
     public boolean equals(Object o) {
