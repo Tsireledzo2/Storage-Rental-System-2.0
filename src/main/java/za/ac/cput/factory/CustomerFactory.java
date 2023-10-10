@@ -10,29 +10,31 @@ import za.ac.cput.util.Helper;
 
 public class CustomerFactory {
 
-    public static Customer createCustomer(String firstName,
-                                          String surname,
+    public static Customer createCustomer(String fullName,
+
                                           String email,
-                                          String cellphone
-                                          /*Address address*/){
+                                          String cellphone,
+                                          String password,
+    boolean agreeToTerms){
 
 
-        if (Helper.isNullorEmpty(firstName) ||
-                Helper.isNullorEmpty(surname) ||
-                Helper.isNullorEmpty(cellphone)){
+        if (Helper.isNullorEmpty(fullName) ||
+
+                Helper.isNullorEmpty(cellphone) || Helper.isNullorEmpty(password)){
             return null;
         }
-        String customerID = Helper.generateId();
+
         if (!Helper.isValidEmail(email)){
             return null;
         }
         Customer customer = new Customer.Builder()
 
-                .setFirstName(firstName)
-                .setSurname(surname)
+                .setFullName(fullName)
+
                 .setEmail(email)
                 .setCellphone(cellphone)
-                //.setAddress(address)
+                .setAgreeToTerms(agreeToTerms)
+
                 .build();
         return customer;
     }
