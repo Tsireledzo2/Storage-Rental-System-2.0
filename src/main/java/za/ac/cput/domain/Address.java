@@ -11,7 +11,7 @@ This is an Address Class
 public class Address {
     @Id
     @GeneratedValue
-    private String addressID;
+    private Long addressID;
     private String streetNumber;
     private String streetName;
     private String state;

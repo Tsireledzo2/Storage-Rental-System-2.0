@@ -8,7 +8,7 @@ class CustomerFactoryTest {
 
     @Test
     void EqualityTest(){
-        Customer customer = CustomerFactory.createCustomer("Ndumiso","Ngcobo","Nduh@gmail.com", "067 9580801");
+        Customer customer = CustomerFactory.createCustomer("Ndumiso","Nduh@gmail.com", "067 9580801","Ngc76086", true);
         System.out.println("Customer: " + customer.toString());
         assertNotNull(customer);
     }

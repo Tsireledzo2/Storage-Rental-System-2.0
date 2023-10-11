@@ -1,12 +1,11 @@
 package za.ac.cput.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Invoice;
-import za.ac.cput.factory.InvoiceFactory;
 import za.ac.cput.service.impl.InvoiceService;
 
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -22,10 +21,15 @@ public class InvoiceController {
     }
 
     @GetMapping("/read/{id}")
-    public Invoice read(@PathVariable String id){
-        return invoiceService.read(id);
+    public ResponseEntity<Invoice> read(@PathVariable String id){
+        Invoice invoice = invoiceService.read(id);
+        if (invoice != null) {
+            String formattedDate = invoice.getFormattedInvoiceDate(); // Get the formatted date
+            return ResponseEntity.ok(invoice);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
-
     @PostMapping("/update")
     public Invoice update(@RequestBody Invoice invoice){
         return invoiceService.update(invoice);
@@ -37,6 +41,13 @@ public class InvoiceController {
 
     @GetMapping({"/getAll"})
     public List<Invoice> getAll(){
-        return  invoiceService.getAll();
+        List<Invoice> invoices = invoiceService.getAll();
+
+        // Format the invoiceDate for all invoices in the list
+        for (Invoice invoice : invoices) {
+            String formattedDate = invoice.getFormattedInvoiceDate(); // Get the formatted date
+        }
+
+        return invoices;
     }
 }
