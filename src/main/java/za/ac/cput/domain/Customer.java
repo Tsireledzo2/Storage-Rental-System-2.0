@@ -5,18 +5,20 @@ This is customer class
 220094861
  */
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
 public class Customer {
 
 
-    private String firstName;
-    private String surname;
+    private String fullName;
+
     @Id
     private String email;
     private String cellphone;
-
+    private String password;
+    private boolean agreeToTerms;
 
    public Customer(){
 
@@ -24,22 +26,20 @@ public class Customer {
     public Customer(Builder builder){
 
         this.email = builder.email;
-        this.surname = builder.surname;
-        this.cellphone = builder.cellphone;
-        this.firstName = builder.firstName;
-       // this.address = builder.address;
+            this.cellphone = builder.cellphone;
+        this.fullName = builder.fullName;
+        this.password =builder.password;
+        this.agreeToTerms = builder.agreeToTerms;
 
     }
 
 
 
-    public String getFirstName() {
-        return firstName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public String getSurname() {
-        return surname;
-    }
+
 
     public String getEmail() {
         return email;
@@ -48,40 +48,48 @@ public class Customer {
     public String getCellphone() {
         return cellphone;
     }
+    public String getPassword(){
+       return password;
+    }
 
-//    public Address getAddress() {
-//        return address;
-//    }
+    public boolean getAgreeToTerms(){
+       return agreeToTerms;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Override
     public String toString() {
         return "Customer{" +
-                "firstName='" + firstName + '\'' +
-                ", surname='" + surname + '\'' +
-                ", email='" + email + '\'' +
-                ", cellphone='" + cellphone + '\'' +
-                //", address=" + address +
+
+                ", Full Name='" + fullName + '\'' +
+
+                ", Email='" + email + '\'' +
+                ", Cellphone='" + cellphone + '\'' +
+                ", Password='" + password + '\'' +
+                ", Agree To Terms='" + agreeToTerms + '\'' +
                 '}';
     }
 
     public static class Builder{
 
-        private String firstName;
-        private String surname;
+        private String fullName;
+
         private String email;
         private String cellphone;
-      //  private Address address;
+        private String password;
+        private boolean agreeToTerms;
 
 
-        public Builder setFirstName(String firstName) {
-            this.firstName = firstName;
+
+        public Builder setFullName(String fullName) {
+            this.fullName = fullName;
             return this;
         }
 
-        public Builder setSurname(String surname) {
-            this.surname = surname;
-            return this;
-        }
+
 
         public Builder setEmail(String email) {
             this.email = email;
@@ -93,17 +101,23 @@ public class Customer {
             return this;
         }
 
-//        public Builder setAddress(Address address) {
-//            this.address = address;
-//            return this;
-//        }
+        public Builder setPassword(String password) {
+            this.password = password;
+            return this;
+        }
+
+        public Builder setAgreeToTerms(boolean agreeToTerms) {
+            this.agreeToTerms = agreeToTerms;
+            return this;
+        }
 
         public Builder copy(Customer customer){
 
-            this.firstName = customer.firstName;
-            this.surname = customer.surname;
+            this.fullName = customer.fullName;
             this.email = customer.email;
             this.cellphone = customer.cellphone;
+            this.password = customer.password;
+            this.agreeToTerms = customer.agreeToTerms;
             return this;
         }
         public Customer build(){
