@@ -5,6 +5,7 @@ Ndumiso Nkululeko Ngcobo
 This is an Address Class
  */
 import za.ac.cput.domain.Address;
+import za.ac.cput.domain.Booking;
 import za.ac.cput.util.Helper;
 
 public class AddressFactory {
@@ -12,7 +13,8 @@ public class AddressFactory {
     public static Address createAddress(String streetNumber,
                                         String streetName,
                                         String state,
-                                        String zipCode){
+                                        String zipCode,
+                                        Booking booking){
 
         if ( Helper.isNullorEmpty(streetNumber)||
                 Helper.isNullorEmpty(streetName)
@@ -28,6 +30,7 @@ public class AddressFactory {
                 .setStreetName(streetName)
                 .setState(state)
                 .setZipCode(zipCode)
+                .setBooking(booking)
                 .build();
 
         return address;

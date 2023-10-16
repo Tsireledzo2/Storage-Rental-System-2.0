@@ -7,10 +7,11 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.Vehicle;
+import za.ac.cput.domain.VehicleType;
 import za.ac.cput.util.Helper;
 
 public class VehicleFactory {
-    public static Vehicle buildVehicle(String numberPlate,String vehicleMake,String vehicleColor,String year, String vehicleName){
+    public static Vehicle buildVehicle(String numberPlate, String vehicleMake, String vehicleColor, String year, String vehicleName, VehicleType vehicleType){
         if(Helper.isNullorEmpty(numberPlate)){
             return null;
         }
@@ -22,6 +23,7 @@ public class VehicleFactory {
                 .setVehicleColor(vehicleColor)
                 .setYear(year)
                 .setVehicleName(vehicleName)
+                .setVehicleType(vehicleType)
                 .build();
         return vehicle;
     }
