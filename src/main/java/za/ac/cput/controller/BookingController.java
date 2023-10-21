@@ -10,6 +10,7 @@ package za.ac.cput.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Booking;
+import za.ac.cput.domain.Driver;
 import za.ac.cput.service.impl.BookingServiceImpl;
 
 import java.util.List;
@@ -28,10 +29,15 @@ public class BookingController {
     }
 
 
-//    @PutMapping("/update")
-//    public Booking update(@RequestBody Booking booking) {
-//        return bookingService.update(booking);
-//    }
+    @PostMapping("/update")
+    public Booking update(@RequestBody Booking booking) {
+        return bookingService.update(booking);
+    }
+
+    @GetMapping("/readBooking/{bookingNumber}")
+    public Booking read(@PathVariable Long bookingNumber){
+        return bookingService.read(bookingNumber);
+    }
 
     @DeleteMapping("/delete/{id}")
     public boolean delete(@PathVariable Long id) {

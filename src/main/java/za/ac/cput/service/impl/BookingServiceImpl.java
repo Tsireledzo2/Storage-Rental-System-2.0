@@ -40,7 +40,10 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public Booking update(Booking booking) {
-        return this.repository.save(booking);
+
+        if(this.repository.existsById(booking.getBookingNumber()))
+            return this.repository.save(booking);
+        return null;
     }
 
     @Override
