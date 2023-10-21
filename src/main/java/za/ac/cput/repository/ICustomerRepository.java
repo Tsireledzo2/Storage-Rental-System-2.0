@@ -14,6 +14,7 @@ import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.Employee;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer, String> {
@@ -23,6 +24,9 @@ public interface ICustomerRepository extends JpaRepository<Customer, String> {
     @Query("SELECT u FROM Customer u WHERE u.email = :email")
     public Customer getCustomersByEmail(@Param("email") String email);
 
+    Boolean existsByEmail(String email);
+
+    Optional<Customer> findByEmail(String email);
 
 
 

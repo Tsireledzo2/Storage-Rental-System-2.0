@@ -6,9 +6,11 @@ Ndumiso Nkululeko Ngcobo
 Customer Controller Class
  */
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.Employee;
+import za.ac.cput.dto.RegisterDto;
 import za.ac.cput.repository.ICustomerRepository;
 import za.ac.cput.service.impl.CustomerServiceImpl;
 
@@ -44,5 +46,8 @@ public class CustomerController {
     return customerService.updateP(customer);
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<?> register (@RequestBody RegisterDto registerDto)
+    { return  customerService.register(registerDto);}
 
 }

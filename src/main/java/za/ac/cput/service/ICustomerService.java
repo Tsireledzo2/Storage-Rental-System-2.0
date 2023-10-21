@@ -6,7 +6,11 @@ Customer Service interface
 11/06/23
  */
 import org.springframework.data.repository.query.Param;
+import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Customer;
+import za.ac.cput.domain.Role;
+import za.ac.cput.dto.LoginDto;
+import za.ac.cput.dto.RegisterDto;
 
 import java.util.List;
 import java.util.Set;
@@ -19,6 +23,11 @@ import java.util.Set;
        public Customer getCustomersByEmail(String email);
 
         public Customer updateP(Customer customer);
+
+        String authenticate(LoginDto loginDto);
+        ResponseEntity<?> register (RegisterDto registerDto);
+
+        Role saveRole(Role role);
 
     }
 
