@@ -21,7 +21,7 @@ public class EmailController {
     ) {
         try {
             // Define the email subject
-            String emailSubject = "Invoice Information";
+            String emailSubject = "Lilyz Storage Invoice";
 
             // Call the EmailService to send the email
             emailService.sendEmail(recipientEmail, emailSubject, emailBody);
