@@ -1,8 +1,6 @@
 package za.ac.cput.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 /*
 Ndumiso Nkululeko Ngcobo
@@ -13,11 +11,14 @@ This is an Address Class
 public class Address {
     @Id
     @GeneratedValue
-    private String addressID;
+    private Long addressID;
     private String streetNumber;
     private String streetName;
     private String state;
     private String zipCode;
+    @OneToOne
+    @JoinColumn(name = "bookingNumber")
+    private Booking booking;
     public Address(){
 
     }
@@ -37,14 +38,19 @@ public class Address {
         return zipCode;
     }
 
+    public Booking getBooking() {
+        return booking;
+    }
 
     @Override
     public String toString() {
         return "Address{" +
-                "streetNumber='" + streetNumber + '\'' +
+                "addressID='" + addressID + '\'' +
+                ", streetNumber='" + streetNumber + '\'' +
                 ", streetName='" + streetName + '\'' +
                 ", state='" + state + '\'' +
                 ", zipCode='" + zipCode + '\'' +
+                ", booking=" + booking +
                 '}';
     }
 
@@ -54,12 +60,14 @@ public class Address {
         this.state = builder.state;
         this.zipCode  = builder.zipCode;
         this.streetName = builder.streetName;
+        this.booking = builder.booking;
     }
     public static class Builder{
         private String streetNumber;
         private String streetName;
         private String state;
         private String zipCode;
+        private Booking booking;
 
         public Builder setStreetNumber(String streetNumber) {
             this.streetNumber = streetNumber;
@@ -81,11 +89,18 @@ public class Address {
             this.zipCode = zipCode;
             return this;
         }
+
+        public Builder setBooking(Booking booking) {
+            this.booking = booking;
+            return this;
+        }
+
         public Builder copy(Address address){
             this.streetNumber = address.streetNumber;
             this.state = address.state;
             this.zipCode = address.zipCode;
             this.streetName = address.streetName;
+            this.booking = address.booking;
             return this;
         }
 

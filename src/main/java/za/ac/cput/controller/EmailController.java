@@ -20,9 +20,16 @@ public class EmailController {
             @RequestParam String emailBody
     ) {
         try {
-            emailService.sendEmail(recipientEmail, "Invoice Information", emailBody);
+            // Define the email subject
+            String emailSubject = "Invoice Information";
+
+            // Call the EmailService to send the email
+            emailService.sendEmail(recipientEmail, emailSubject, emailBody);
+
+            // Return a success response
             return ResponseEntity.ok("Email sent successfully");
         } catch (Exception e) {
+            // Return an error response in case of an exception
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Email sending failed");
         }
     }

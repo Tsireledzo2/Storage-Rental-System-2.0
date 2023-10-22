@@ -8,7 +8,9 @@ Customer Controller Class
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Customer;
+import za.ac.cput.domain.Employee;
 import za.ac.cput.repository.ICustomerRepository;
+import za.ac.cput.service.impl.CustomerServiceImpl;
 
 
 @RestController
@@ -17,6 +19,8 @@ import za.ac.cput.repository.ICustomerRepository;
 public class CustomerController {
     @Autowired
     private ICustomerRepository customerRepository;
+    @Autowired
+    private CustomerServiceImpl customerService;
 
 
 @Autowired
@@ -29,4 +33,16 @@ public class CustomerController {
     return customerRepository.save(customer);
 
     }
+
+    @GetMapping("/login/{email}/{password}")
+    public Customer findByEmail(@PathVariable String email, @PathVariable String password){
+        return customerService.login(email, password);
+    }
+
+    @PostMapping("/update")
+    public Customer Resetpassword(@RequestBody Customer customer){
+    return customerService.updateP(customer);
+    }
+
+
 }
