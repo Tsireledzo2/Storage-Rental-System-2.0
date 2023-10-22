@@ -9,12 +9,12 @@ import za.ac.cput.service.impl.InvoiceService;
 import java.util.List;
 
 @RestController
-@RequestMapping("invoice")
+@RequestMapping("/invoice")
 public class InvoiceController {
     @Autowired
     private InvoiceService invoiceService;
 
-    @PostMapping("create")
+    @PostMapping("/create")
     public Invoice create(@RequestBody Invoice invoice){
 //        Invoice created = InvoiceFactory.builddInvoice("10", 300, "chris", new Date(2025,3,8));
         return invoiceService.create(invoice);
