@@ -12,5 +12,7 @@ import java.util.List;
 import java.util.Set;
     public interface IAddressService extends IService<Address,String> {
         public List<Address> getAll();
+
+        public Address getAddressByBookingNumber(Long bookingNumber);
     }
 
