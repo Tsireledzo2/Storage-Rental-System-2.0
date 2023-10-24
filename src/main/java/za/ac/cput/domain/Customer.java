@@ -5,20 +5,28 @@ This is customer class
 220094861
  */
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Customer {
 
 
     private String fullName;
-
     @Id
     private String email;
     private String cellphone;
     private String password;
     private boolean agreeToTerms;
+
+//    @ElementCollection(fetch= FetchType.EAGER)
+//    @CollectionTable(
+//            name="roles",
+//            joinColumns = @JoinColumn(name="email")
+//    )
+//    @Column(name="user_role")
+//    private List<String> roles;
 
    public Customer(){
 

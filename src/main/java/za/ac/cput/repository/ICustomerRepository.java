@@ -11,10 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Customer;
-import za.ac.cput.domain.Employee;
 
-import java.util.List;
-import java.util.Set;
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer, String> {
     @Query("SELECT u FROM Customer u WHERE u.email = :email AND u.password = :password")
@@ -23,7 +20,5 @@ public interface ICustomerRepository extends JpaRepository<Customer, String> {
     @Query("SELECT u FROM Customer u WHERE u.email = :email")
     public Customer getCustomersByEmail(@Param("email") String email);
 
-
-
-
+//    Optional<User> findUserByEmail(String email);
 }

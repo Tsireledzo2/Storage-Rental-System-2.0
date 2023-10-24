@@ -30,6 +30,7 @@ public class ContactUsController {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setTo("codingcubeteam@gmail.com"); // Replace with the recipient's email address
             helper.setSubject("Contact Form Submission");
+            helper.setFrom(contactUs.getEmail());
             helper.setText("Name: " + contactUs.getName() + "\nEmail: " + contactUs.getEmail() + "\nMessage: " + contactUs.getMessage());
 
             // Send the email
