@@ -47,7 +47,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'Lilyz-Storage'
+          app-name: 'Storage-Rental-System-2.0'
           slot-name: 'production'
           package: '*.jar'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_05201311704b44beb9baaf4fc2b782ef }}
